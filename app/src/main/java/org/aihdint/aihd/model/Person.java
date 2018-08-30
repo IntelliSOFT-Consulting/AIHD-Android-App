@@ -1,6 +1,5 @@
 package org.aihdint.aihd.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.orm.SugarRecord;
 
 /**

@@ -544,8 +544,6 @@
                                     android:textSize="13sp" />
 
                             </LinearLayout>
-
-
                         </LinearLayout>
 
 
@@ -567,7 +565,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                tools:ignore="TooManyViews">
 
                                 <customfonts.TextView_Roboto_Bold
                                     android:layout_width="match_parent"
@@ -800,88 +799,73 @@
                             android:padding="10dp"
                             android:text="General Exam" />
 
-                        <LinearLayout
+
+                        <RadioGroup
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
-
-                            <RadioGroup
+                            <RadioButton
+                                android:id="@+id/radio_exam_fair"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                                android:text="Fair General" />
 
-                                <RadioButton
-                                    android:id="@+id/radio_exam_fair"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-
-                                    android:text="Fair General" />
-
-                                <RadioButton
-                                    android:id="@+id/radio_exam_good"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-
-                                    android:text="Good General" />
-
-                                <RadioButton
-                                    android:id="@+id/radio_exam_sick"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-
-                                    android:text="Sick Looking" />
-                            </RadioGroup>
-
-                            <CheckBox
-                                android:id="@+id/checkbox_exam_pallor"
-                                android:layout_width="wrap_content"
+                            <RadioButton
+                                android:id="@+id/radio_exam_good"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:text="Good General" />
 
-                                android:text="Pallor" />
-
-                            <CheckBox
-                                android:id="@+id/checkbox_exam_jaundice"
-                                android:layout_width="wrap_content"
+                            <RadioButton
+                                android:id="@+id/radio_exam_sick"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:text="Sick Looking" />
+                        </RadioGroup>
 
-                                android:text="Jaundice" />
+                        <CheckBox
+                            android:id="@+id/checkbox_exam_pallor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="Pallor" />
 
-                            <CheckBox
-                                android:id="@+id/checkbox_exam_cyanosis"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                        <CheckBox
+                            android:id="@+id/checkbox_exam_jaundice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Jaundice" />
 
-                                android:text="Cyanosis" />
+                        <CheckBox
+                            android:id="@+id/checkbox_exam_cyanosis"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cyanosis" />
 
-                            <CheckBox
-                                android:id="@+id/checkbox_exam_lymphadenopathy"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                        <CheckBox
+                            android:id="@+id/checkbox_exam_lymphadenopathy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lymphadenopathy" />
 
-                                android:text="Lymphadenopathy" />
+                        <CheckBox
+                            android:id="@+id/checkbox_exam_oedema"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Oedema" />
 
-                            <CheckBox
-                                android:id="@+id/checkbox_exam_oedema"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                        <CheckBox
+                            android:id="@+id/checkbox_exam_dehydration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dehydration" />
 
-                                android:text="Oedema" />
-
-                            <CheckBox
-                                android:id="@+id/checkbox_exam_dehydration"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="Dehydration" />
-
-                            <CheckBox
-                                android:id="@+id/checkbox_exam_other"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="Other" />
-                        </LinearLayout>
+                        <CheckBox
+                            android:id="@+id/checkbox_exam_other"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Other" />
 
                         <LinearLayout
                             android:id="@+id/linearLayoutExamOther"
@@ -908,8 +892,6 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
                             android:layout_marginTop="10dp"
                             android:baselineAligned="false"
                             android:orientation="horizontal"
@@ -927,23 +909,18 @@
                                     android:padding="10dp"
                                     android:text="Visual Impairment" />
 
-                                <RadioGroup
+                                <RadioButton
+                                    android:id="@+id/radio_visual_impairment_yes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+                                    android:text="Yes" />
 
-                                    <RadioButton
-                                        android:id="@+id/radio_visual_impairment_yes"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:text="Yes" />
+                                <RadioButton
+                                    android:id="@+id/radio_visual_impairment_no"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="No" />
 
-                                    <RadioButton
-                                        android:id="@+id/radio_visual_impairment_no"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:text="No" />
-                                </RadioGroup>
                             </LinearLayout>
 
                             <LinearLayout
@@ -972,12 +949,10 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
                             android:layout_marginTop="10dp"
+                            android:baselineAligned="false"
                             android:orientation="horizontal"
-                            android:weightSum="2"
-                            android:baselineAligned="false">
+                            android:weightSum="2">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -991,25 +966,17 @@
                                     android:padding="10dp"
                                     android:text="CVS" />
 
-                                <RadioGroup
+                                <RadioButton
+                                    android:id="@+id/radio_cvs_normal"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+                                    android:text="Normal" />
 
-                                    <RadioButton
-                                        android:id="@+id/radio_cvs_normal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-
-                                        android:text="Normal" />
-
-                                    <RadioButton
-                                        android:id="@+id/radio_cvs_abnormal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-
-                                        android:text="Abnormal" />
-                                </RadioGroup>
+                                <RadioButton
+                                    android:id="@+id/radio_cvs_abnormal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Abnormal" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -1037,12 +1004,10 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
                             android:layout_marginTop="10dp"
+                            android:baselineAligned="false"
                             android:orientation="horizontal"
-                            android:weightSum="2"
-                            android:baselineAligned="false">
+                            android:weightSum="2">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -1056,24 +1021,17 @@
                                     android:padding="10dp"
                                     android:text="RS" />
 
-                                <RadioGroup
+                                <RadioButton
+                                    android:id="@+id/radio_rs_normal"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+                                    android:text="Normal" />
 
-                                    <RadioButton
-                                        android:id="@+id/radio_rs_normal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:text="Normal" />
-
-                                    <RadioButton
-                                        android:id="@+id/radio_rs_abnormal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-
-                                        android:text="Abnormal" />
-                                </RadioGroup>
+                                <RadioButton
+                                    android:id="@+id/radio_rs_abnormal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Abnormal" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -1101,12 +1059,10 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
                             android:layout_marginTop="10dp"
+                            android:baselineAligned="false"
                             android:orientation="horizontal"
-                            android:weightSum="2"
-                            android:baselineAligned="false">
+                            android:weightSum="2">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -1120,25 +1076,17 @@
                                     android:padding="10dp"
                                     android:text="P/A" />
 
-                                <RadioGroup
+                                <RadioButton
+                                    android:id="@+id/radio_pa_normal"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+                                    android:text="Normal" />
 
-                                    <RadioButton
-                                        android:id="@+id/radio_pa_normal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-
-                                        android:text="Normal" />
-
-                                    <RadioButton
-                                        android:id="@+id/radio_pa_abnormal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-
-                                        android:text="Abnormal" />
-                                </RadioGroup>
+                                <RadioButton
+                                    android:id="@+id/radio_pa_abnormal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Abnormal" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -1166,12 +1114,10 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
                             android:layout_marginTop="10dp"
+                            android:baselineAligned="false"
                             android:orientation="horizontal"
-                            android:weightSum="2"
-                            android:baselineAligned="false">
+                            android:weightSum="2">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -1185,25 +1131,17 @@
                                     android:padding="10dp"
                                     android:text="CNS" />
 
-                                <RadioGroup
+                                <RadioButton
+                                    android:id="@+id/radio_cns_normal"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+                                    android:text="Normal" />
 
-                                    <RadioButton
-                                        android:id="@+id/radio_cns_normal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-
-                                        android:text="Normal" />
-
-                                    <RadioButton
-                                        android:id="@+id/radio_cns_abnormal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-
-                                        android:text="Abnormal" />
-                                </RadioGroup>
+                                <RadioButton
+                                    android:id="@+id/radio_cns_abnormal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Abnormal" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -1232,12 +1170,10 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
                             android:layout_marginTop="10dp"
+                            android:baselineAligned="false"
                             android:orientation="horizontal"
-                            android:weightSum="2"
-                            android:baselineAligned="false">
+                            android:weightSum="2">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -1251,25 +1187,17 @@
                                     android:padding="10dp"
                                     android:text="Extremities" />
 
-                                <RadioGroup
+                                <RadioButton
+                                    android:id="@+id/radio_extremities_normal"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+                                    android:text="Normal" />
 
-                                    <RadioButton
-                                        android:id="@+id/radio_extremities_normal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-
-                                        android:text="Normal" />
-
-                                    <RadioButton
-                                        android:id="@+id/radio_extremities_abnormal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-
-                                        android:text="Abnormal" />
-                                </RadioGroup>
+                                <RadioButton
+                                    android:id="@+id/radio_extremities_abnormal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Abnormal" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -1280,33 +1208,28 @@
                                 android:layout_weight="1"
                                 android:orientation="vertical">
 
-
                                 <CheckBox
                                     android:id="@+id/checkbox_extremities_ulcers"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
                                     android:text="Ulcers" />
 
                                 <CheckBox
                                     android:id="@+id/checkbox_extremities_callouses"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
                                     android:text="Callouses" />
 
                                 <CheckBox
                                     android:id="@+id/checkbox_extremities_nails"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
                                     android:text="Hardened Nails" />
 
                                 <CheckBox
                                     android:id="@+id/checkbox_extremities_fungus"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
                                     android:text="Fungus" />
 
                                 <CheckBox
@@ -1319,14 +1242,12 @@
                                     android:id="@+id/checkbox_extremities_edema"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
                                     android:text="Edema" />
 
                                 <CheckBox
                                     android:id="@+id/checkbox_extremities_dry"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
                                     android:text="Dry" />
                             </LinearLayout>
                         </LinearLayout>
@@ -1334,8 +1255,6 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
                             android:layout_marginTop="10dp"
                             android:orientation="vertical">
 

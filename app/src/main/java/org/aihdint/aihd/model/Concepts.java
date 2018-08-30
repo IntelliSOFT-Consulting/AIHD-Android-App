@@ -16,19 +16,8 @@ public class Concepts extends SugarRecord {
         this.concept_answer = concept_answer;
     }
 
-    public String getConcept_id() {
-        return concept_id;
-    }
-
-    public void setConcept_id(String concept_id) {
-        this.concept_id = concept_id;
-    }
-
     public String getConcept_answer() {
         return concept_answer;
     }
 
-    public void setConcept_answer(String concept_answer) {
-        this.concept_answer = concept_answer;
-    }
 }

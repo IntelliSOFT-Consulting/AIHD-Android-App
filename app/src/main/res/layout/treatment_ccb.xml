@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
 
     <customfonts.TextView_Roboto_Bold
         android:layout_width="match_parent"
@@ -24,7 +25,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.25"
-
             android:text="Amlodipine " />
 
         <Spinner
@@ -52,7 +52,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.25"
-
             android:text="Felodipine " />
 
         <Spinner
@@ -80,7 +79,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.25"
-
             android:text="Nifedipine " />
 
         <Spinner
@@ -96,28 +94,13 @@
             android:layout_weight=".75" />
     </LinearLayout>
 
-    <LinearLayout
+    <customfonts.EditText_Roboto_Regular
+        android:id="@+id/other_ccb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="3">
+        android:hint="Other Long-acting CCB"
+        android:padding="15dp"
+        android:textSize="13sp" />
 
-        <customfonts.EditText_Roboto_Regular
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.25"
-            android:hint="Other Long-acting CCB"
-            android:padding="15dp"
-            android:textSize="13sp" />
-
-        <customfonts.EditText_Roboto_Regular
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.75"
-            android:hint="dosage &amp; frequency"
-            android:padding="15dp"
-            android:textSize="13sp" />
-
-    </LinearLayout>
 
 </LinearLayout>

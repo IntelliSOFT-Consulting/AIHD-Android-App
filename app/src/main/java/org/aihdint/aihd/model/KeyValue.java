@@ -41,7 +41,7 @@ public class KeyValue {
     public boolean equals(Object obj) {
         if(obj instanceof KeyValue){
             KeyValue c = (KeyValue )obj;
-            if(c.getName().equals(name) && c.getId()==id ) return true;
+            return c.getName().equals(name) && c.getId().equals(id);
         }
 
         return false;

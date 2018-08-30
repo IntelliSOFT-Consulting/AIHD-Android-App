@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
 
     <customfonts.TextView_Roboto_Bold
         android:layout_width="match_parent"
@@ -28,7 +30,7 @@
             android:text="Diet" />
 
         <customfonts.EditText_Roboto_Regular
-            android:id="@+id/treatment_diet_date"
+            android:id="@+id/treatment_diet_specify"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
@@ -52,7 +54,7 @@
             android:text="Physical exercise" />
 
         <customfonts.EditText_Roboto_Regular
-            android:id="@+id/treatment_physical_exercise_date"
+            android:id="@+id/treatment_physical_exercise_specify"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
@@ -76,7 +78,7 @@
             android:text="Herbal" />
 
         <customfonts.EditText_Roboto_Regular
-            android:id="@+id/treatment_herbal_date"
+            android:id="@+id/treatment_herbal_specify"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
@@ -100,7 +102,7 @@
             android:text="Other" />
 
         <customfonts.EditText_Roboto_Regular
-            android:id="@+id/treatment_other_date"
+            android:id="@+id/treatment_other_specify"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
@@ -186,7 +188,6 @@
             android:id="@+id/treatment_followup_other"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:text="Other" />
 
     </LinearLayout>

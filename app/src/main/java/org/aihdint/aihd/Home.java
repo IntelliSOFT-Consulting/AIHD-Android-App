@@ -1,11 +1,9 @@
 package org.aihdint.aihd;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
-import android.util.Log;
 import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -15,19 +13,15 @@ import android.view.MenuItem;
 import com.orm.query.Condition;
 import com.orm.query.Select;
 
-import org.aihdint.aihd.forms.File_Upload;
 import org.aihdint.aihd.model.Forms;
-import org.aihdint.aihd.model.Person;
 import org.aihdint.aihd.patient.Patients;
-import org.aihdint.aihd.app.NavigationDrawerShare;
+import org.aihdint.aihd.common.NavigationDrawerShare;
 import org.aihdint.aihd.services.LoadFiles;
-import org.aihdint.aihd.services.LoadPatients;
 
 import java.util.List;
 
 public class Home extends AppCompatActivity{
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +30,7 @@ public class Home extends AppCompatActivity{
         setSupportActionBar(toolbar);
 
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
-        navigate.CreateDrawer(toolbar);
+        navigate.createDrawer(toolbar);
 
         List<Forms> forms = Select.from(Forms.class).where(Condition.prop("status").eq("0")).list();
         for (Forms cn : forms) {
@@ -45,8 +39,6 @@ public class Home extends AppCompatActivity{
             intentPatient.putExtra("file_path", Environment.getExternalStorageDirectory() + "/aihd/" + cn.getForm_type() + "/" + cn.getForm_name());
             intentPatient.putExtra("form_id", cn.getId());
             getApplication().startService(intentPatient);
-
-            //File_Upload.upload(this, Environment.getExternalStorageDirectory() + "/aihd/"+cn.getForm_type()+"/" + cn.getForm_name(),cn.getId() , null);
         }
 
         FloatingActionButton fab = findViewById(R.id.fab);

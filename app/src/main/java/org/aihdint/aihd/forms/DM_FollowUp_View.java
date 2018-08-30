@@ -9,9 +9,9 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.app.JSONFormBuilder;
-import org.aihdint.aihd.app.NavigationDrawerShare;
-import org.aihdint.aihd.pageadapters.DM_Initial_View_Adapter;
+import org.aihdint.aihd.common.JSONFormBuilder;
+import org.aihdint.aihd.common.NavigationDrawerShare;
+import org.aihdint.aihd.adapters.pages.DM_FollowUp_View_Adapter;
 
 /**
  * Developed by Rodney on 26/03/2018.
@@ -30,7 +30,7 @@ public class DM_FollowUp_View extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
-        navigate.CreateDrawer(toolbar);
+        navigate.createDrawer(toolbar);
 
         Intent intent = getIntent();
         //report_id = intent.getStringExtra("report_id");
@@ -47,7 +47,7 @@ public class DM_FollowUp_View extends AppCompatActivity {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = findViewById(R.id.pager);
-        final DM_Initial_View_Adapter adapter = new DM_Initial_View_Adapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        final DM_FollowUp_View_Adapter adapter = new DM_FollowUp_View_Adapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         //noinspection deprecation

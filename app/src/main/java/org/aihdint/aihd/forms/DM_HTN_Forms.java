@@ -19,9 +19,9 @@ import com.orm.query.Select;
 
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.CustomDividerItemDecoration;
-import org.aihdint.aihd.app.NavigationDrawerShare;
+import org.aihdint.aihd.common.NavigationDrawerShare;
 import org.aihdint.aihd.model.Forms;
-import org.aihdint.aihd.model.adapter.FormAdapter;
+import org.aihdint.aihd.adapters.models.FormAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +44,7 @@ public class DM_HTN_Forms extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
-        navigate.CreateDrawer(toolbar);
+        navigate.createDrawer(toolbar);
 
         Intent intent = getIntent();
         patient_id = intent.getStringExtra("patient_id");

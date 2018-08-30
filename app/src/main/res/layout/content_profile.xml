@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,161 +21,190 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <LinearLayout
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_margin="5dp"
+                android:background="@drawable/round_border"
+                app:cardCornerRadius="5dp">
 
-                <android.support.v7.widget.CardView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/round_border"
-                    app:cardCornerRadius="5dp">
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <customfonts.TextView_RobotoLight
+                        android:id="@+id/patient_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textSize="16sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
 
-                        <customfonts.TextView_RobotoLight
-                            android:id="@+id/patient_name"
-                            android:layout_width="match_parent"
+                        <CheckBox
+                            android:id="@+id/checkbox_diagnosis_dm"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_margin="20dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textSize="16sp" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <CheckBox
-                                android:id="@+id/checkbox_diagnosis_dm"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:onClick="onCheckboxClicked"
-                                android:text="Diabetic"
-                                android:textSize="14sp" />
-
-                            <CheckBox
-                                android:id="@+id/checkbox_diagnosis_htn"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:onClick="onCheckboxClicked"
-                                android:text="Hypertensive"
-                                android:textSize="14sp" />
-                        </LinearLayout>
-
-                        <customfonts.TextView_Roboto_Regular
-                            android:id="@+id/checkbox_appointment"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:onClick="onCheckboxClicked"
-                            android:text="Missed Appointment"
-                            android:textColor="@color/black"
-                            android:padding="5dp"
+                            android:text="Diabetic"
                             android:textSize="14sp" />
 
-                        <customfonts.TextView_Roboto_Regular
-                            android:id="@+id/checkbox_lost_followup"
-                            android:layout_width="match_parent"
+                        <CheckBox
+                            android:id="@+id/checkbox_diagnosis_htn"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:onClick="onCheckboxClicked"
-                            android:text="Lost to Follow Up"
-                            android:textColor="@color/black"
-                            android:padding="5dp"
+                            android:text="Hypertensive"
                             android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <customfonts.TextView_Roboto_Regular
+                        android:id="@+id/checkbox_appointment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="onCheckboxClicked"
+                        android:padding="5dp"
+                        android:text="Missed Appointment"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <customfonts.TextView_Roboto_Regular
+                        android:id="@+id/checkbox_lost_followup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="onCheckboxClicked"
+                        android:padding="5dp"
+                        android:text="Lost to Follow Up"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
 
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
-
-                            <android.support.v7.widget.CardView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:layout_weight="1"
-                                android:foreground="?android:attr/selectableItemBackground"
-                                android:clickable="true"
-                                android:focusable="true"
-                                android:onClick="dm_initial"
-                                app:cardCornerRadius="5dp">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-
-                                    <ImageView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="75dp"
-                                        android:contentDescription="DM Initial"
-                                        android:src="@drawable/ic_note_add" />
-
-                                    <customfonts.TextView_Roboto_Bold
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_margin="5dp"
-                                        android:text="Initial Form"
-                                        android:textAlignment="center"
-                                        android:textColor="@color/black"
-                                        android:textSize="14sp" />
-                                </LinearLayout>
-                            </android.support.v7.widget.CardView>
-
-                            <android.support.v7.widget.CardView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:layout_weight="1"
-                                android:foreground="?android:attr/selectableItemBackground"
-                                android:clickable="true"
-                                android:focusable="true"
-                                android:onClick="dm_followup"
-                                app:cardCornerRadius="5dp">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-
-                                    <ImageView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="75dp"
-                                        android:contentDescription="DM FollowUp"
-                                        android:src="@drawable/ic_description"
-                                        android:textColor="@color/black" />
-
-                                    <customfonts.TextView_Roboto_Bold
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_margin="5dp"
-                                        android:text="FollowUp Form"
-                                        android:textAlignment="center"
-                                        android:textColor="@color/black"
-                                        android:textSize="14sp" />
-                                </LinearLayout>
-                            </android.support.v7.widget.CardView>
-                        </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
 
                         <android.support.v7.widget.CardView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
                             android:layout_margin="10dp"
-                            android:foreground="?android:attr/selectableItemBackground"
+                            android:layout_weight="1"
                             android:clickable="true"
                             android:focusable="true"
-                            android:onClick="forms"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:onClick="dmInitial"
+                            app:cardCornerRadius="5dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="75dp"
+                                    android:contentDescription="DM Initial"
+                                    android:src="@drawable/ic_note_add" />
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="Initial Form"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+
+                        <android.support.v7.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:onClick="dmFollowup"
+                            app:cardCornerRadius="5dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="75dp"
+                                    android:contentDescription="DM FollowUp"
+                                    android:src="@drawable/ic_description"
+                                    android:textColor="@color/black" />
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="FollowUp Form"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+                    </LinearLayout>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="10dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:onClick="forms"
+                        app:cardCornerRadius="5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:text="DM HTN Forms"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <android.support.v7.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:onClick="admission"
                             app:cardCornerRadius="5dp">
 
                             <LinearLayout
@@ -188,143 +216,107 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="5dp"
-                                    android:text="DM HTN Forms"
+                                    android:text="Admission Form"
                                     android:textAlignment="center"
                                     android:textColor="@color/black"
                                     android:textSize="14sp" />
                             </LinearLayout>
                         </android.support.v7.widget.CardView>
 
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
+                        <android.support.v7.widget.CardView
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:onClick="footClinic"
+                            app:cardCornerRadius="5dp">
 
-                            <android.support.v7.widget.CardView
-                                android:layout_width="0dp"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:layout_weight="1"
-                                android:foreground="?android:attr/selectableItemBackground"
-                                android:clickable="true"
-                                android:focusable="true"
-                                android:onClick="admission"
-                                app:cardCornerRadius="5dp">
+                                android:orientation="vertical">
 
-                                <LinearLayout
+                                <customfonts.TextView_Roboto_Bold
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-
-                                    <customfonts.TextView_Roboto_Bold
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_margin="5dp"
-                                        android:text="Admission Form"
-                                        android:textAlignment="center"
-                                        android:textColor="@color/black"
-                                        android:textSize="14sp" />
-                                </LinearLayout>
-                            </android.support.v7.widget.CardView>
-
-                            <android.support.v7.widget.CardView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:layout_weight="1"
-                                android:foreground="?android:attr/selectableItemBackground"
-                                android:clickable="true"
-                                android:focusable="true"
-                                android:onClick="foot_clinic"
-                                app:cardCornerRadius="5dp">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-
-                                    <customfonts.TextView_Roboto_Bold
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_margin="5dp"
-                                        android:text="Foot Clinic Form"
-                                        android:textAlignment="center"
-                                        android:textColor="@color/black"
-                                        android:textSize="14sp" />
-                                </LinearLayout>
-                            </android.support.v7.widget.CardView>
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
-
-                            <android.support.v7.widget.CardView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:layout_weight="1"
-                                android:foreground="?android:attr/selectableItemBackground"
-                                android:clickable="true"
-                                android:focusable="true"
-                                android:onClick="transfer"
-                                app:cardCornerRadius="5dp">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-
-                                    <customfonts.TextView_Roboto_Bold
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_margin="5dp"
-                                        android:text="Transfer Form"
-                                        android:textAlignment="center"
-                                        android:textColor="@color/black"
-                                        android:textSize="14sp" />
-                                </LinearLayout>
-                            </android.support.v7.widget.CardView>
-
-                            <android.support.v7.widget.CardView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:layout_weight="1"
-                                android:foreground="?android:attr/selectableItemBackground"
-                                android:clickable="true"
-                                android:focusable="true"
-                                android:onClick="deceased"
-                                app:cardCornerRadius="5dp">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-
-                                    <customfonts.TextView_Roboto_Bold
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_margin="5dp"
-                                        android:text="Deceased Form"
-                                        android:textAlignment="center"
-                                        android:textColor="@color/black"
-                                        android:textSize="14sp" />
-                                </LinearLayout>
-                            </android.support.v7.widget.CardView>
-                        </LinearLayout>
-
-
+                                    android:layout_margin="5dp"
+                                    android:text="Foot Clinic Form"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
                     </LinearLayout>
-                </android.support.v7.widget.CardView>
 
 
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <android.support.v7.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:onClick="transfer"
+                            app:cardCornerRadius="5dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="Transfer Form"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+
+                        <android.support.v7.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:onClick="deceased"
+                            app:cardCornerRadius="5dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="Deceased Form"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
         </ScrollView>
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

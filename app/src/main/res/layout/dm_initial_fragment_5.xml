@@ -78,15 +78,15 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-
                                 android:text="Continue Care in clinic" />
 
                             <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/followup_date"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Return date"
                                 android:inputType="date"
-                                android:padding="15dp"
+                                android:padding="10dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -101,22 +101,23 @@
                                 android:id="@+id/followup_refer"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:text="Refer to referral facility" />
 
                             <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/facility"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Facility"
-                                android:padding="15dp"
+                                android:padding="10dp"
                                 android:textSize="13sp" />
 
                             <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/date_referred"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Date referred"
                                 android:inputType="date"
-                                android:padding="15dp"
+                                android:padding="10dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -126,26 +127,27 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
-                                <CheckBox
-                                    android:id="@+id/followup_transfer"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-
-                                    android:text="Transfer care to Health center, specify" />
-
-                                <customfonts.EditText_Roboto_Regular
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:hint="Health Center"
-                                    android:padding="15dp"
-                                    android:textSize="13sp" />
+                            <CheckBox
+                                android:id="@+id/followup_transfer"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Transfer care to Health center, specify" />
 
                             <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/health_center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Health Center"
+                                android:padding="10dp"
+                                android:textSize="13sp" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/date_transfer"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Date transferred out"
                                 android:inputType="date"
-                                android:padding="15dp"
+                                android:padding="10dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -164,11 +166,11 @@
                                 android:textAllCaps="false" />
 
                             <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/referred_reason"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint=""
                                 android:inputType="text"
-                                android:padding="15dp"
+                                android:padding="10dp"
                                 android:textSize="13sp" />
 
                         </LinearLayout>
@@ -290,10 +292,11 @@
                                 android:textAllCaps="false" />
 
                             <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/provider_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Provider Name"
-                                android:padding="15dp"
+                                android:padding="10dp"
                                 android:textSize="13sp" />
                         </LinearLayout>
 
@@ -329,7 +332,5 @@
 
 
         </LinearLayout>
-
     </ScrollView>
-
 </android.support.design.widget.CoordinatorLayout>

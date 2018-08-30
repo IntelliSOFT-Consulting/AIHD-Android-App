@@ -133,62 +133,6 @@ public class HttpHandler {
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    //String fname, String lname, String gender, String isEstimated, String address
-    public String AddPatient(){
-        String json,response = null;
-
-        try {
-            JSONObject jsonObject = new JSONObject();
-
-            JSONObject jsonObjectNames = new JSONObject();
-            jsonObjectNames.accumulate("givenName","James");
-            jsonObjectNames.accumulate("familyName","Bay");
-            jsonObject.accumulate("names", "["+jsonObjectNames+"]");
-            jsonObject.accumulate("gender", "M");
-
-            json = jsonObject.toString();
-            json = json.replace("\\","");
-            Log.d("Json String",json);
-
-            byte[] postData = json.getBytes(Charset.forName("UTF-8"));
-            int postDataLength = postData.length;
-            String request = "http://45.79.145.240:8080/ems/ws/rest/v1/person";
-            URL url = new URL( request );
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setDoOutput( true );
-
-            Authenticator.setDefault(new Authenticator() {
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication(
-                            AppController.getInstance().getSessionManager().getUserDetails().get("name"),
-                            AppController.getInstance().getSessionManager().getUserDetails().get("password").toCharArray());
-                }
-            });
-
-            conn.setInstanceFollowRedirects( false );
-            conn.setRequestMethod( "POST" );
-            conn.setRequestProperty( "Content-Type", "application/json");
-            conn.setRequestProperty( "charset", "utf-8");
-            conn.setRequestProperty( "Content-Length", Integer.toString( postDataLength ));
-            conn.setUseCaches( false );
-
-            // read the response
-            try( DataOutputStream wr = new DataOutputStream( conn.getOutputStream())) {
-                wr.write( postData );
-            }
-
-
-
-            //response = aResponse.toString();
-            //Log.d("Response POST",aResponse.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-
-        }
-        return response;
-    }
-
     private String convertStreamToString(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();

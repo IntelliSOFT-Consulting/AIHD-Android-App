@@ -16,7 +16,7 @@ import org.aihdint.aihd.forms.DM_FollowUp;
 import org.aihdint.aihd.forms.DM_HTN_Forms;
 import org.aihdint.aihd.forms.DM_Initial;
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.app.NavigationDrawerShare;
+import org.aihdint.aihd.common.NavigationDrawerShare;
 
 public class Profile extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
@@ -31,7 +31,7 @@ public class Profile extends AppCompatActivity implements CompoundButton.OnCheck
         setSupportActionBar(toolbar);
 
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
-        navigate.CreateDrawer(toolbar);
+        navigate.createDrawer(toolbar);
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
@@ -62,14 +62,14 @@ public class Profile extends AppCompatActivity implements CompoundButton.OnCheck
         }
     }
 
-    public void dm_initial(View view) {
+    public void dmInitial(View view) {
         Intent dm_initial = new Intent(getApplicationContext(), DM_Initial.class);
         dm_initial.putExtra("patient_id", patient_id);
         startActivity(dm_initial);
         finish();
     }
 
-    public void dm_followup(View view) {
+    public void dmFollowup(View view) {
         Intent dm_followup = new Intent(getApplicationContext(), DM_FollowUp.class);
         dm_followup.putExtra("patient_id", patient_id);
         startActivity(dm_followup);
@@ -91,7 +91,7 @@ public class Profile extends AppCompatActivity implements CompoundButton.OnCheck
         finish();
     }
 
-    public void foot_clinic(View view) {
+    public void footClinic(View view) {
 
         Intent foot_clinic = new Intent(getApplicationContext(), FootClinic.class);
         foot_clinic.putExtra("patient_id", patient_id);

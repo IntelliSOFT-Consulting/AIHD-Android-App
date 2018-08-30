@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -29,7 +30,7 @@ import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.AppController;
-import org.aihdint.aihd.app.NavigationDrawerShare;
+import org.aihdint.aihd.common.NavigationDrawerShare;
 import org.aihdint.aihd.model.KeyValue;
 import org.aihdint.aihd.model.Person;
 import org.aihdint.aihd.services.LoadPatients;
@@ -43,6 +44,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.lang.Integer.decode;
 import static java.lang.Integer.parseInt;
 import static org.aihdint.aihd.app.Config.PATIENT_REGISTER_URL;
 
@@ -56,6 +58,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
 
     private String gender, birthdate, isEstimated, location_id, patient_type;
     private TextView textViewDOB;
+    private Button buttonDOB;
     private EditText editTextAge, editTextFamilyName, editTextGivenName, editTextTelephone, editTextTelephoneOther, editTextPatientNumber;
     private EditText editTextAddress1, editTextAddress2, editTextAddress3, editTextCounty, editTextVillage;
     private EditText editTextSupporter, editTextSupporterNumber, editTextSupporterNumberOther, editTextSupporterAddress;
@@ -78,7 +81,9 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
         pDialog.setCancelable(false);
 
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
-        navigate.CreateDrawer(toolbar);
+        navigate.createDrawer(toolbar);
+
+        buttonDOB = findViewById(R.id.birthdate_button);
 
         editTextFamilyName = findViewById(R.id.family_name);
         editTextGivenName = findViewById(R.id.given_name);
@@ -161,6 +166,7 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
         String date = year + "-" + monthOfYear + "-" + dayOfMonth;
         textViewDOB.setText(date);
+        buttonDOB.setText(date);
         birthdate = date;
     }
 
@@ -198,6 +204,8 @@ public class Register extends AppCompatActivity implements DatePickerDialog.OnDa
             case R.id.radio_patient_in_transit:
                 if (checked)
                     patient_type = "patient_in_transit";
+                break;
+            default:
                 break;
         }
     }

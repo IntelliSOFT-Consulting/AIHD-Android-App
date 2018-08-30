@@ -1,7 +1,6 @@
 package org.aihdint.aihd.forms;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
@@ -13,33 +12,24 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.error.VolleyError;
-import com.android.volley.request.StringRequest;
-
 import org.aihdint.aihd.Home;
-import org.aihdint.aihd.app.Alerts;
-import org.aihdint.aihd.app.JSONFormBuilder;
-import org.aihdint.aihd.app.Validation;
-import org.aihdint.aihd.pageadapters.DM_Initial_Adapter;
+import org.aihdint.aihd.common.Alerts;
+import org.aihdint.aihd.common.File_Upload;
+import org.aihdint.aihd.common.JSONFormBuilder;
+import org.aihdint.aihd.common.Validation;
+import org.aihdint.aihd.adapters.pages.DM_Initial_Adapter;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.AppController;
-import org.aihdint.aihd.app.NavigationDrawerShare;
-import org.aihdint.aihd.fragments.dm_initial.FragmentModelInitial;
+import org.aihdint.aihd.common.NavigationDrawerShare;
+import org.aihdint.aihd.fragments.initial.FragmentModelInitial;
 import org.aihdint.aihd.model.Forms;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.Map;
-
-import static org.aihdint.aihd.app.Config.DMINITIAL_URL;
 
 /**
  * Developed by Rodney on 26/03/2018.
@@ -47,12 +37,11 @@ import static org.aihdint.aihd.app.Config.DMINITIAL_URL;
 
 public class DM_Initial extends AppCompatActivity implements FragmentModelInitial.FragStateChangeListener {
 
-    private static final String TAG = DM_Initial.class.getSimpleName();
+    //private static final String TAG = DM_Initial.class.getSimpleName();
 
     private JSONArray jsonArry1, jsonArry2, jsonArry3, jsonArry4, jsonArry5;
     private String encounter_date, file_name, form_id, patient_id;
-    private ProgressDialog pDialog;
-    private long id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +50,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
         setSupportActionBar(toolbar);
 
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
-        navigate.CreateDrawer(toolbar);
+        navigate.createDrawer(toolbar);
 
         FragmentModelInitial.getInstance().setListener(this);
 
@@ -140,7 +129,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
 
     public void validateInitial(View view) {
 
-        pDialog = File_Upload.showProgressDialog(this, "Uploading DM Initial Form ...");
+        ProgressDialog pDialog = File_Upload.showProgressDialog(this, "Uploading DM Initial Form ...");
 
         File dir = new File(Environment.getExternalStorageDirectory() + "/aihd/initial");
 
@@ -156,7 +145,7 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
             JSONArray jsonArray = JSONFormBuilder.concatArray(jsonArry1, jsonArry2, jsonArry3, jsonArry4, jsonArry5);
             JSONObject jsonForm = new JSONObject();
 
-            String error = Validation.InitialValidation(jsonArray);
+            String error = Validation.initialValidation(jsonArray);
 
             if (jsonArray.length() == 0) {
                 error = "Please fill in required fields(*)";
@@ -185,11 +174,11 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
                 f.close();
 
                 Forms forms = new Forms(form_id, file_name, creator, patient_id, "initial", encounter_date, "0");
-                id = forms.save();
+                long id = forms.save();
 
                 Toast.makeText(getBaseContext(), "Initial Encounter file saved", Toast.LENGTH_SHORT).show();
 
-                boolean isConnected = File_Upload.Connectivity(getApplicationContext());
+                boolean isConnected = File_Upload.connectivity(getApplicationContext());
                 if (isConnected) {
                     File_Upload.upload(this, Environment.getExternalStorageDirectory() + "/aihd/initial/" + file_name, id, null);
                 } else {
@@ -220,9 +209,9 @@ public class DM_Initial extends AppCompatActivity implements FragmentModelInitia
     }
 
 
-    /**
+    /*
      * Method to make json array request where response starts with [
-     */
+     *
 
     private void dmInitialForm() {
 

@@ -28,11 +28,6 @@ public class Location extends SugarRecord {
         return this._id;
     }
 
-    // setting id
-    public void setID(String id){
-        this._id = id;
-    }
-
     // getting name
     public String getName(){
         return this._name;
@@ -47,9 +42,6 @@ public class Location extends SugarRecord {
         return _mfl_code;
     }
 
-    public void set_mfl_code(String _mfl_code) {
-        this._mfl_code = _mfl_code;
-    }
 
     //ALTER TABLE LOCATION ADD _MFLCODE TEXT;
 

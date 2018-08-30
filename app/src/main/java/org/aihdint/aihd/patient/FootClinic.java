@@ -11,7 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.app.NavigationDrawerShare;
+import org.aihdint.aihd.common.NavigationDrawerShare;
 import org.aihdint.aihd.model.KeyValue;
 
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class FootClinic extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
-        navigate.CreateDrawer(toolbar);
+        navigate.createDrawer(toolbar);
 
         // Progress dialog
         pDialog = new ProgressDialog(this);
@@ -83,6 +83,8 @@ public class FootClinic extends AppCompatActivity {
                                 designation = value.getId();
                             }
                             break;
+                        default:
+                            break;
                     }
 
                 }
@@ -91,6 +93,7 @@ public class FootClinic extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+                //Nothing selected
             }
         });
 

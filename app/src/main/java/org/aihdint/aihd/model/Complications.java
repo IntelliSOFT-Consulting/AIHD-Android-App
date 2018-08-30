@@ -2,10 +2,10 @@ package org.aihdint.aihd.model;
 
 public class Complications {
 
-    String complication;
-    String diagnosis;
-    String date;
-    String comment;
+    private String complication;
+    private String diagnosis;
+    private String date;
+    private String comment;
 
     public Complications() {
     }

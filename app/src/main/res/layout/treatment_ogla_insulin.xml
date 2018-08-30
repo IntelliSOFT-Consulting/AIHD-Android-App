@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
 
     <customfonts.TextView_Roboto_Bold
         android:layout_width="match_parent"
@@ -12,29 +14,12 @@
         android:text="Non Insulin Injectable"
         android:textAllCaps="false" />
 
-    <LinearLayout
+    <customfonts.EditText_Roboto_Regular
+        android:id="@+id/non_insulin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="3">
-
-        <customfonts.EditText_Roboto_Regular
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.25"
-            android:hint="Drug Name"
-            android:padding="15dp"
-            android:textSize="13sp" />
-
-        <customfonts.EditText_Roboto_Regular
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.75"
-            android:hint="dosage &amp; frequency"
-            android:padding="15dp"
-            android:textSize="13sp" />
-
-    </LinearLayout>
+        android:padding="10dp"
+        android:textSize="13sp" />
 
 
     <customfonts.TextView_Roboto_Bold
@@ -45,28 +30,12 @@
         android:text="Both OGLAs &amp; Insulin"
         android:textAllCaps="false" />
 
-    <LinearLayout
+    <customfonts.EditText_Roboto_Regular
+        android:id="@+id/ogla_insulin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="3">
+        android:padding="15dp"
+        android:textSize="13sp" />
 
-        <customfonts.EditText_Roboto_Regular
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.25"
-            android:hint="Drug Name"
-            android:padding="15dp"
-            android:textSize="13sp" />
-
-        <customfonts.EditText_Roboto_Regular
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.75"
-            android:hint="dosage &amp; frequency"
-            android:padding="15dp"
-            android:textSize="13sp" />
-
-    </LinearLayout>
 
 </LinearLayout>

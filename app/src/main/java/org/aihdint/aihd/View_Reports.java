@@ -12,9 +12,9 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
 
-import org.aihdint.aihd.app.NavigationDrawerShare;
+import org.aihdint.aihd.common.NavigationDrawerShare;
 import org.aihdint.aihd.model.Report;
-import org.aihdint.aihd.model.adapter.PatientReportAdapter;
+import org.aihdint.aihd.adapters.models.PatientReportAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +40,7 @@ public class View_Reports extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
-        navigate.CreateDrawer(toolbar);
+        navigate.createDrawer(toolbar);
 
         inputSearch = findViewById(R.id.input_search);
         RecyclerView recyclerView =  findViewById(R.id.my_recycler_view);

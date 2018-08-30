@@ -2,8 +2,6 @@ package org.aihdint.aihd.model;
 
 import com.orm.SugarRecord;
 
-import org.json.JSONObject;
-
 public class Forms extends SugarRecord {
 
     private String form_id;
@@ -13,7 +11,6 @@ public class Forms extends SugarRecord {
     private String form_type;
     private String date;
     public String status;
-    private JSONObject obs;
 
     public Forms() {
     }
@@ -44,22 +41,6 @@ public class Forms extends SugarRecord {
         this.form_name = form_name;
     }
 
-    public String getCreator() {
-        return creator;
-    }
-
-    public void setCreator(String creator) {
-        this.creator = creator;
-    }
-
-    public String getPatient_id() {
-        return patient_id;
-    }
-
-    public void setPatient_id(String patient_id) {
-        this.patient_id = patient_id;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -84,11 +65,4 @@ public class Forms extends SugarRecord {
         this.form_type = form_type;
     }
 
-    public JSONObject getObs() {
-        return obs;
-    }
-
-    public void setObs(JSONObject obs) {
-        this.obs = obs;
-    }
 }

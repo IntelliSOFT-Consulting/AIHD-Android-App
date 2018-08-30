@@ -32,7 +32,7 @@ import com.android.volley.error.VolleyError;
 import com.android.volley.request.StringRequest;
 import com.orm.query.Select;
 
-import org.aihdint.aihd.forms.File_Upload;
+import org.aihdint.aihd.common.File_Upload;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.app.Config;
 import org.aihdint.aihd.app.SessionManager;
@@ -222,7 +222,7 @@ public class Login extends Activity {
         //&& !location_id.isEmpty()
         if (!username.isEmpty() && !password.isEmpty() && !location_id.isEmpty()) {
             // login user
-            boolean isConnected = File_Upload.Connectivity(getApplicationContext());
+            boolean isConnected = File_Upload.connectivity(getApplicationContext());
 
             if (isConnected) {
                 loginServer(username, password);

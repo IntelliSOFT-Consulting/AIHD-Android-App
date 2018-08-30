@@ -1,6 +1,5 @@
 package org.aihdint.aihd.forms;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
@@ -12,13 +11,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import org.aihdint.aihd.app.JSONFormBuilder;
+import org.aihdint.aihd.common.File_Upload;
+import org.aihdint.aihd.common.JSONFormBuilder;
 import org.aihdint.aihd.model.Forms;
-import org.aihdint.aihd.pageadapters.DM_FollowUp_Adapter;
+import org.aihdint.aihd.adapters.pages.DM_FollowUp_Adapter;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.AppController;
-import org.aihdint.aihd.app.NavigationDrawerShare;
-import org.aihdint.aihd.fragments.dm_followup.FragmentModelFollowUp;
+import org.aihdint.aihd.common.NavigationDrawerShare;
+import org.aihdint.aihd.fragments.followup.FragmentModelFollowUp;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,8 +38,6 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
     private String encounter_date, file_name, form_id, patient_id;
     private long id;
 
-
-    @SuppressLint("SimpleDateFormat")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +46,7 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
         setSupportActionBar(toolbar);
 
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
-        navigate.CreateDrawer(toolbar);
+        navigate.createDrawer(toolbar);
 
         FragmentModelFollowUp.getInstance().setListener(this);
 
@@ -169,7 +167,7 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
 
 
         Toast.makeText(getBaseContext(), file_name + " file saved", Toast.LENGTH_SHORT).show();
-        boolean isConnected = File_Upload.Connectivity(getApplicationContext());
+        boolean isConnected = File_Upload.connectivity(getApplicationContext());
         if (isConnected) {
             File_Upload.upload(this, Environment.getExternalStorageDirectory() + "/aihd/followup/" + file_name, id, null);
         } else {

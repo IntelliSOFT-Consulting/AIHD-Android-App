@@ -15,9 +15,9 @@ import android.widget.EditText;
 
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.CustomDividerItemDecoration;
-import org.aihdint.aihd.app.NavigationDrawerShare;
+import org.aihdint.aihd.common.NavigationDrawerShare;
 import org.aihdint.aihd.model.Person;
-import org.aihdint.aihd.model.adapter.PatientAdapter;
+import org.aihdint.aihd.adapters.models.PatientAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,9 +26,7 @@ import java.util.List;
 public class Patient_Reports extends AppCompatActivity {
 
     //private String TAG = MainActivity.class.getSimpleName();
-    //private DatabaseHandler database;
 
-    private EditText inputSearch;
     private List <Person> contactList;
     private PatientAdapter adapter;
 
@@ -41,9 +39,9 @@ public class Patient_Reports extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
-        navigate.CreateDrawer(toolbar);
+        navigate.createDrawer(toolbar);
 
-        inputSearch = findViewById(R.id.input_search);
+        EditText inputSearch = findViewById(R.id.input_search);
         RecyclerView recyclerView =  findViewById(R.id.my_recycler_view);
 
         contactList = new ArrayList<>();
@@ -58,15 +56,6 @@ public class Patient_Reports extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.addItemDecoration(new CustomDividerItemDecoration(this, DividerItemDecoration.VERTICAL, 36));
         recyclerView.setAdapter(adapter);
-
-        /*
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter);
-        */
-
-        //database = new DatabaseHandler(this);
 
         getPatients();
 

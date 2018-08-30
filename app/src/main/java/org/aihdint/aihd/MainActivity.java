@@ -59,8 +59,6 @@ public class MainActivity extends AppCompatActivity {
         coordinatorLayout = findViewById(R.id.coordinatorLayout);
         Button btnCapturePicture = findViewById(R.id.btnCapturePicture);
 
-        checkPermissions();
-
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
         name = intent.getStringExtra("name");
@@ -248,48 +246,4 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-    public void checkPermissions(){
-        if (    ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
-                ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ){
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            List<String> permissions = new ArrayList<>();
-            permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
-            permissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                requestPermissions( permissions.toArray( new String[permissions.size()] ), 101 );
-            }
-            //return;
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch ( requestCode ) {
-            case 101: {
-                for( int i = 0; i < permissions.length; i++ ) {
-                    if( grantResults[i] == PackageManager.PERMISSION_GRANTED ) {
-                        Log.d( "Permissions", "Permission Granted: " + permissions[i] );
-                    } else if( grantResults[i] == PackageManager.PERMISSION_DENIED ) {
-                        Log.d( "Permissions", "Permission Denied: " + permissions[i] );
-                        //Toast.makeText(getActivity(), "LoyaltyClub won't work well unless you allow requested permissions to be granted", Toast.LENGTH_LONG).show();
-                        Snackbar snackbar = Snackbar.make(coordinatorLayout, permissions[i]+ " : Permission Denied", Snackbar.LENGTH_INDEFINITE);
-                        snackbar.show();
-                    }
-                }
-            }
-            break;
-            default: {
-                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-            }
-        }
-    }
 }

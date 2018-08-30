@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.app.NavigationDrawerShare;
+import org.aihdint.aihd.common.NavigationDrawerShare;
 import org.aihdint.aihd.model.KeyValue;
 
 import java.text.SimpleDateFormat;
@@ -35,7 +35,7 @@ public class Admission extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         NavigationDrawerShare navigate = new NavigationDrawerShare(this);
-        navigate.CreateDrawer(toolbar);
+        navigate.createDrawer(toolbar);
 
         EditText editTextAdmissionDate = findViewById(R.id.admission_date);
 
@@ -86,6 +86,8 @@ public class Admission extends AppCompatActivity {
                             if (data.matches("designation")) {
                                 designation = value.getId();
                             }
+                            break;
+                        default:
                             break;
                     }
 
