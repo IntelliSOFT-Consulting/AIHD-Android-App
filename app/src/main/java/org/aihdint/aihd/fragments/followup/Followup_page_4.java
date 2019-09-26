@@ -1,316 +1,291 @@
 package org.aihdint.aihd.fragments.followup;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.LayoutInflater;
-import android.support.v4.app.Fragment;
-import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
-import org.aihdint.aihd.common.DateCalendar;
-import org.aihdint.aihd.common.variables.DrugsDose;
-import org.aihdint.aihd.common.json.JsonDrugs;
-import org.aihdint.aihd.common.JSONFormBuilder;
 import org.aihdint.aihd.R;
-import org.aihdint.aihd.common.checkboxes.CheckBoxInterface;
-import org.aihdint.aihd.common.spinners.SpinnerInterface;
+import org.aihdint.aihd.common.DateCalendar;
+import org.aihdint.aihd.common.JSONFormBuilder;
 import org.json.JSONArray;
+import org.json.JSONException;
 
-import static org.aihdint.aihd.common.checkboxes.CheckBoxDrugs.checkBoxTreatment;
-import static org.aihdint.aihd.common.spinners.SpinnerDose.spinnerDoseData;
-import static org.aihdint.aihd.common.spinners.SpinnerFrequency.spinnerDataFrequency;
+import static java.lang.Double.parseDouble;
+import static org.aihdint.aihd.common.Common.checkAlert;
+import static org.aihdint.aihd.forms.DM_Initial.gender;
 
 /**
  * Developed by Rodney on 24/04/2018.
  */
 
-public class Followup_page_4 extends Fragment implements CheckBoxInterface, SpinnerInterface {
+public class Followup_page_4 extends Fragment {
 
-    private DrugsDose drugsDose;
+    private View view;
+    private EditText editTextRBS, editTextFBC, editTextHBA, editTextUrea, editTextSodium, editTextChloride, editTextPotassium, editTextCreatinine, editTextHDL, editTextLDL, editTextCholesterol,
+            editTextTriglcerides, editTextAST, editTextALT, editTextTotalBilirubin, editTextDirectBilirubin, editTextGamma;
+
+    private EditText editTextRBSDate;
+    private EditText editTextFBCDate;
+    private EditText editTextHBADate;
+    private EditText editTextUreaDate;
+    private EditText editTextSodiumDate;
+    private EditText editTextChlorideDate;
+    private EditText editTextPotassiumDate;
+    private EditText editTextCreatinineDate;
+    private EditText editTextHDLDate;
+    private EditText editTextLDLDate;
+    private EditText editTextCholesterolDate;
+    private EditText editTextTriglceridesDate;
+    private EditText editTextASTDate;
+    private EditText editTextALTDate;
+    private EditText editTextTotalBilirubinDate;
+    private EditText editTextDirectBilirubinDate;
+    private EditText editTextGammaDate;
+    private EditText editTextGlucoseDate;
+    private EditText editTextKetoneDate;
+    private EditText editTextDeposits;
+    private EditText editTextDepositsDate;
+    private EditText editTextECGDate;
+    private EditText editTextCXRDate;
+    private EditText editTextUltraSound;
+    private EditText editTextPDT;
+    private EditText editTextPDTDate;
+
+    private RadioGroup radioGroupGlucose, radioGroupProtein, radioGroupKetone;
+
+    private String glucose, glucose_plus, protein, protein_plus, ketone, ketone_plus, ecg, cxr;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.dm_followup_fragment_4, container, false);
+        view = inflater.inflate(R.layout.dm_followup_fragment_5, container, false);
 
-        LinearLayout testLinearLayout = view.findViewById(R.id.testLinearLayout);
-        testLinearLayout.setVisibility(View.GONE);
+        LinearLayout pdt = view.findViewById(R.id.linearLayoutPDT);
 
-        drugsDose = new DrugsDose(getContext());
-        drugsDose.initializeDrugs(view);
+        if (gender != null && gender.equals("F")) {
+            pdt.setVisibility(View.VISIBLE);
+        }
 
-        drugsDose.editTextReturnDate = view.findViewById(R.id.followup_date);
-        drugsDose.editTextReferralLocation = view.findViewById(R.id.referral_place);
-        drugsDose.editTextReferralDate = view.findViewById(R.id.referral_date);
-        drugsDose.editTextReferralNote = view.findViewById(R.id.referral_note);
-        drugsDose.editTextClinician = view.findViewById(R.id.clinician);
+        editTextRBS = view.findViewById(R.id.blood_work_rbs);
+        editTextFBC = view.findViewById(R.id.blood_work_fbc);
+        editTextHBA = view.findViewById(R.id.blood_work_hba);
+        editTextUrea = view.findViewById(R.id.blood_work_urea);
+        editTextSodium = view.findViewById(R.id.blood_work_sodium);
+        editTextChloride = view.findViewById(R.id.blood_work_chloride);
+        editTextPotassium = view.findViewById(R.id.blood_work_potassium);
+        editTextCreatinine = view.findViewById(R.id.blood_work_creatinine);
+        editTextHDL = view.findViewById(R.id.blood_work_hdl);
+        editTextLDL = view.findViewById(R.id.blood_work_ldl);
+        editTextCholesterol = view.findViewById(R.id.blood_work_cholesterol);
+        editTextTriglcerides = view.findViewById(R.id.blood_work_triglycerides);
+        editTextAST = view.findViewById(R.id.blood_work_ast);
+        editTextALT = view.findViewById(R.id.blood_work_alt);
+        editTextTotalBilirubin = view.findViewById(R.id.blood_work_bilirubin);
+        editTextDirectBilirubin = view.findViewById(R.id.blood_work_direct_bilirubin);
+        editTextGamma = view.findViewById(R.id.blood_work_gamma);
 
-        DateCalendar.date(getActivity(), drugsDose.editTextReturnDate);
-        DateCalendar.date(getActivity(), drugsDose.editTextReferralDate);
+        editTextDeposits = view.findViewById(R.id.deposit_comment);
+        editTextPDT = view.findViewById(R.id.comment_pdt);
 
-        textWatcher(drugsDose.editTextComment);
-        textWatcher(drugsDose.editTextReturnDate);
-        textWatcher(drugsDose.editTextReferralLocation);
-        textWatcher(drugsDose.editTextReferralDate);
-        textWatcher(drugsDose.editTextReferralNote);
-        textWatcher(drugsDose.editTextClinician);
+        editTextRBSDate = view.findViewById(R.id.datetime_rbs);
+        editTextFBCDate = view.findViewById(R.id.datetime_fbc);
+        editTextHBADate = view.findViewById(R.id.datetime_hba);
+        editTextUreaDate = view.findViewById(R.id.datetime_urea);
+        editTextSodiumDate = view.findViewById(R.id.datetime_sodium);
+        editTextChlorideDate = view.findViewById(R.id.datetime_chloride);
+        editTextPotassiumDate = view.findViewById(R.id.datetime_potassium);
+        editTextCreatinineDate = view.findViewById(R.id.datetime_creatinine);
+        editTextHDLDate = view.findViewById(R.id.datetime_hdl);
+        editTextLDLDate = view.findViewById(R.id.datetime_ldl);
+        editTextCholesterolDate = view.findViewById(R.id.datetime_cholesterol);
+        editTextTriglceridesDate = view.findViewById(R.id.datetime_triglycerides);
+        editTextASTDate = view.findViewById(R.id.datetime_ast);
+        editTextALTDate = view.findViewById(R.id.datetime_alt);
+        editTextTotalBilirubinDate = view.findViewById(R.id.datetime_bilirubin);
+        editTextDirectBilirubinDate = view.findViewById(R.id.datetime_direct_bilirubin);
+        editTextGammaDate = view.findViewById(R.id.datetime_gamma);
+        editTextUltraSound = view.findViewById(R.id.datetime_ultrasound);
+        editTextPDTDate = view.findViewById(R.id.datetime_pdt);
+        editTextGlucoseDate = view.findViewById(R.id.datetime_urinalysis_glucose);
+        EditText editTextProteinDate = view.findViewById(R.id.datetime_urinalysis_protein);
+        editTextKetoneDate = view.findViewById(R.id.datetime_urinalysis_ketone);
+        editTextDepositsDate = view.findViewById(R.id.datetime_urinalysis_deposit);
+        editTextECGDate = view.findViewById(R.id.datetime_ecg);
+        editTextCXRDate = view.findViewById(R.id.datetime_cxr);
 
-        CheckBox checkBoxMetformin = view.findViewById(R.id.treatment_metformin);
-        CheckBox checkBoxGlibenclamide = view.findViewById(R.id.treatment_glibenclamide);
+        editTextRBSDate.setText(DateCalendar.date());
+        editTextFBCDate.setText(DateCalendar.date());
+        editTextHBADate.setText(DateCalendar.date());
+        editTextUreaDate.setText(DateCalendar.date());
+        editTextSodiumDate.setText(DateCalendar.date());
+        editTextChlorideDate.setText(DateCalendar.date());
+        editTextPotassiumDate.setText(DateCalendar.date());
+        editTextCreatinineDate.setText(DateCalendar.date());
+        editTextHDLDate.setText(DateCalendar.date());
+        editTextLDLDate.setText(DateCalendar.date());
+        editTextCholesterolDate.setText(DateCalendar.date());
+        editTextTriglceridesDate.setText(DateCalendar.date());
+        editTextASTDate.setText(DateCalendar.date());
+        editTextALTDate.setText(DateCalendar.date());
+        editTextTotalBilirubinDate.setText(DateCalendar.date());
+        editTextDirectBilirubinDate.setText(DateCalendar.date());
+        editTextGammaDate.setText(DateCalendar.date());
+        editTextGlucoseDate.setText(DateCalendar.date());
+        editTextProteinDate.setText(DateCalendar.date());
+        editTextKetoneDate.setText(DateCalendar.date());
+        editTextDepositsDate.setText(DateCalendar.date());
+        editTextECGDate.setText(DateCalendar.date());
+        editTextCXRDate.setText(DateCalendar.date());
 
-        CheckBox checkBoxAtenolol = view.findViewById(R.id.treatment_atenolol);
-        CheckBox checkBoxLabetolol = view.findViewById(R.id.treatment_labetolol);
-        CheckBox checkBoxPropranolol = view.findViewById(R.id.treatment_propranolol);
-        CheckBox checkBoxCarvedilol = view.findViewById(R.id.treatment_carvedilol);
-        CheckBox checkBoxNebivolol = view.findViewById(R.id.treatment_nebivolol);
-        CheckBox checkBoxMetoprolol = view.findViewById(R.id.treatment_metoprolol);
-        CheckBox checkBoxBisoprolol = view.findViewById(R.id.treatment_bisoprolol);
+        DateCalendar.fulldate(getActivity(), editTextRBSDate);
+        DateCalendar.fulldate(getActivity(), editTextFBCDate);
+        DateCalendar.fulldate(getActivity(), editTextHBADate);
+        DateCalendar.fulldate(getActivity(), editTextUreaDate);
+        DateCalendar.fulldate(getActivity(), editTextSodiumDate);
+        DateCalendar.fulldate(getActivity(), editTextChlorideDate);
+        DateCalendar.fulldate(getActivity(), editTextPotassiumDate);
+        DateCalendar.fulldate(getActivity(), editTextCreatinineDate);
+        DateCalendar.fulldate(getActivity(), editTextHDLDate);
+        DateCalendar.fulldate(getActivity(), editTextLDLDate);
+        DateCalendar.fulldate(getActivity(), editTextCholesterolDate);
+        DateCalendar.fulldate(getActivity(), editTextTriglceridesDate);
+        DateCalendar.fulldate(getActivity(), editTextASTDate);
+        DateCalendar.fulldate(getActivity(), editTextALTDate);
+        DateCalendar.fulldate(getActivity(), editTextTotalBilirubinDate);
+        DateCalendar.fulldate(getActivity(), editTextDirectBilirubinDate);
+        DateCalendar.fulldate(getActivity(), editTextGammaDate);
+        DateCalendar.fulldate(getActivity(), editTextUltraSound);
+        DateCalendar.fulldate(getActivity(), editTextPDTDate);
+        DateCalendar.fulldate(getActivity(), editTextGlucoseDate);
+        DateCalendar.fulldate(getActivity(), editTextProteinDate);
+        DateCalendar.fulldate(getActivity(), editTextKetoneDate);
+        DateCalendar.fulldate(getActivity(), editTextDepositsDate);
+        DateCalendar.fulldate(getActivity(), editTextECGDate);
+        DateCalendar.fulldate(getActivity(), editTextCXRDate);
 
-        CheckBox checkBoxAmlodipine = view.findViewById(R.id.treatment_amlodipine);
-        CheckBox checkBoxFelodipine = view.findViewById(R.id.treatment_felodipine);
-        CheckBox checkBoxNifedipine = view.findViewById(R.id.treatment_nifedipine);
+        textWatcher(editTextRBS, "rbs");
+        textWatcher(editTextFBC, "fbc");
+        textWatcher(editTextHBA, "hba");
+        textWatcher(editTextUrea, "urea");
+        textWatcher(editTextSodium, "sodium");
+        textWatcher(editTextChloride, "chloride");
+        textWatcher(editTextPotassium, "potassium");
+        textWatcher(editTextCreatinine, "creatinine");
+        textWatcher(editTextHDL, "hdl");
+        textWatcher(editTextLDL, "ldl");
+        textWatcher(editTextCholesterol, "cholesterol");
+        textWatcher(editTextTriglcerides, "triglcerides");
+        textWatcher(editTextAST, "ast");
+        textWatcher(editTextALT, "alt");
+        textWatcher(editTextTotalBilirubin, "tbilirubin");
+        textWatcher(editTextDirectBilirubin, "dbilirubin");
+        textWatcher(editTextGamma, "gamma");
+        textWatcher(editTextDeposits, "");
+        textWatcher(editTextPDT, "");
 
-        CheckBox checkBoxChlorthalidone = view.findViewById(R.id.treatment_chlorthalidone);
-        CheckBox checkBoxHydrochlorothia = view.findViewById(R.id.treatment_hydrochlorothia);
-        CheckBox checkBoxIndapamide = view.findViewById(R.id.treatment_indapamide);
+        textWatcher(editTextRBSDate, "");
+        textWatcher(editTextFBCDate, "");
+        textWatcher(editTextHBADate, "");
+        textWatcher(editTextUreaDate, "");
+        textWatcher(editTextSodiumDate, "");
+        textWatcher(editTextChlorideDate, "");
+        textWatcher(editTextPotassiumDate, "");
+        textWatcher(editTextCreatinineDate, "");
+        textWatcher(editTextHDLDate, "");
+        textWatcher(editTextLDLDate, "");
+        textWatcher(editTextCholesterolDate, "");
+        textWatcher(editTextTriglceridesDate, "");
+        textWatcher(editTextASTDate, "");
+        textWatcher(editTextALTDate, "");
+        textWatcher(editTextTotalBilirubinDate, "");
+        textWatcher(editTextDirectBilirubinDate, "");
+        textWatcher(editTextGammaDate, "");
+        textWatcher(editTextUltraSound, "");
+        textWatcher(editTextPDTDate, "");
+        textWatcher(editTextGlucoseDate, "");
+        textWatcher(editTextProteinDate, "");
+        textWatcher(editTextKetoneDate, "");
+        textWatcher(editTextDepositsDate, "");
+        textWatcher(editTextECGDate, "");
+        textWatcher(editTextCXRDate, "");
 
-        CheckBox checkBoxMethyldopa = view.findViewById(R.id.treatment_methyldopa);
-        CheckBox checkBoxHydralazine = view.findViewById(R.id.treatment_hydralazine);
-        CheckBox checkBoxPrazocin = view.findViewById(R.id.treatment_prazocin);
+        radioGroupGlucose = view.findViewById(R.id.radiogroup_glucose);
+        radioGroupProtein = view.findViewById(R.id.radiogroup_protein);
+        radioGroupKetone = view.findViewById(R.id.radiogroup_ketone);
 
-        CheckBox checkBoxInsulin = view.findViewById(R.id.treatment_insulin);
-        CheckBox checkBoxSolubleInsulin = view.findViewById(R.id.treatment_soluble_insulin);
-        CheckBox checkBoxNPH = view.findViewById(R.id.treatment_nph);
-        CheckBox checkBoxNPH2 = view.findViewById(R.id.treatment_nph_2);
+        RadioButton radioButtonGlucoseYes = view.findViewById(R.id.radio_glucose_yes);
+        RadioButton radioButtonGlucoseNo = view.findViewById(R.id.radio_glucose_no);
+        RadioButton radioButtonGlucose1 = view.findViewById(R.id.radio_glucose_plus);
+        RadioButton radioButtonGlucose2 = view.findViewById(R.id.radio_glucose_plus2);
+        RadioButton radioButtonGlucose3 = view.findViewById(R.id.radio_glucose_plus3);
+        RadioButton radioButtonProteinYes = view.findViewById(R.id.radio_protein_yes);
+        RadioButton radioButtonProteinNo = view.findViewById(R.id.radio_protein_no);
+        RadioButton radioButtonProtein1 = view.findViewById(R.id.radio_protein_plus);
+        RadioButton radioButtonProtein2 = view.findViewById(R.id.radio_protein_plus2);
+        RadioButton radioButtonProtein3 = view.findViewById(R.id.radio_protein_plus3);
+        RadioButton radioButtonKetoneYes = view.findViewById(R.id.radio_ketone_yes);
+        RadioButton radioButtonKetoneNo = view.findViewById(R.id.radio_ketone_no);
+        RadioButton radioButtonKetone1 = view.findViewById(R.id.radio_ketone_plus);
+        RadioButton radioButtonKetone2 = view.findViewById(R.id.radio_ketone_plus2);
+        RadioButton radioButtonKetone3 = view.findViewById(R.id.radio_ketone_plus3);
+        RadioButton radioButtonECGNormal = view.findViewById(R.id.radio_ecg_normal);
+        RadioButton radioButtonECGAbnormal = view.findViewById(R.id.radio_ecg_abnormal);
+        RadioButton radioButtonCXRNormal = view.findViewById(R.id.radio_cxr_normal);
+        RadioButton radioButtonCXRAbnormal = view.findViewById(R.id.radio_cxr_abnormal);
 
-        CheckBox checkBoxDiet = view.findViewById(R.id.treatment_diet);
-        CheckBox checkBoxHerbal = view.findViewById(R.id.treatment_herbal);
-        CheckBox checkBoxExercise = view.findViewById(R.id.treatment_physical_exercise);
-        CheckBox checkBoxOther = view.findViewById(R.id.treatment_other);
-
-        CheckBox checkBoxContinueCare = view.findViewById(R.id.followup_continue);
-
-        checkBoxTreatment(drugsDose, checkBoxMetformin, this);
-        checkBoxTreatment(drugsDose, checkBoxGlibenclamide, this);
-
-        checkBoxTreatment(drugsDose, drugsDose.checkBoxCaptopril, this);
-        checkBoxTreatment(drugsDose, drugsDose.checkBoxEnalapril, this);
-        checkBoxTreatment(drugsDose, drugsDose.checkBoxLisinopril, this);
-        checkBoxTreatment(drugsDose, drugsDose.checkBoxPerindopril, this);
-        checkBoxTreatment(drugsDose, drugsDose.checkBoxRamipril, this);
-
-        checkBoxTreatment(drugsDose, drugsDose.checkBoxCandesartan, this);
-        checkBoxTreatment(drugsDose, drugsDose.checkBoxIrbesartan, this);
-        checkBoxTreatment(drugsDose, drugsDose.checkBoxLosartan, this);
-        checkBoxTreatment(drugsDose, drugsDose.checkBoxTelmisartan, this);
-        checkBoxTreatment(drugsDose, drugsDose.checkBoxValsartan, this);
-        checkBoxTreatment(drugsDose, drugsDose.checkBoxOlmesartan, this);
-
-        checkBoxTreatment(drugsDose, checkBoxAtenolol, this);
-        checkBoxTreatment(drugsDose, checkBoxLabetolol, this);
-        checkBoxTreatment(drugsDose, checkBoxPropranolol, this);
-        checkBoxTreatment(drugsDose, checkBoxCarvedilol, this);
-        checkBoxTreatment(drugsDose, checkBoxNebivolol, this);
-        checkBoxTreatment(drugsDose, checkBoxMetoprolol, this);
-        checkBoxTreatment(drugsDose, checkBoxBisoprolol, this);
-
-        checkBoxTreatment(drugsDose, checkBoxAmlodipine, this);
-        checkBoxTreatment(drugsDose, checkBoxFelodipine, this);
-        checkBoxTreatment(drugsDose, checkBoxNifedipine, this);
-
-        checkBoxTreatment(drugsDose, checkBoxChlorthalidone, this);
-        checkBoxTreatment(drugsDose, checkBoxHydrochlorothia, this);
-        checkBoxTreatment(drugsDose, checkBoxIndapamide, this);
-
-        checkBoxTreatment(drugsDose, checkBoxMethyldopa, this);
-        checkBoxTreatment(drugsDose, checkBoxHydralazine, this);
-        checkBoxTreatment(drugsDose, checkBoxPrazocin, this);
-
-        checkBoxTreatment(drugsDose, checkBoxInsulin, this);
-        checkBoxTreatment(drugsDose, checkBoxSolubleInsulin, this);
-        checkBoxTreatment(drugsDose, checkBoxNPH, this);
-        checkBoxTreatment(drugsDose, checkBoxNPH2, this);
-
-        checkBoxTreatment(drugsDose, checkBoxDiet, this);
-        checkBoxTreatment(drugsDose, checkBoxHerbal, this);
-        checkBoxTreatment(drugsDose, checkBoxExercise, this);
-        checkBoxTreatment(drugsDose, checkBoxOther, this);
-
-        checkBoxTreatment(drugsDose, checkBoxContinueCare, this);
-
-        //SpinnerDosage
-        Spinner spinnerDrugMetformin = view.findViewById(R.id.spinnerDrugMetformin);
-        Spinner spinnerDrugGlibenclamide = view.findViewById(R.id.spinnerDrugGlibenclamide);
-
-        Spinner spinnerDrugCaptopril = view.findViewById(R.id.spinnerDrugCaptopril);
-        Spinner spinnerDrugEnalapril = view.findViewById(R.id.spinnerDrugEnalapril);
-        Spinner spinnerDrugLisinopril = view.findViewById(R.id.spinnerDrugLisinopril);
-        Spinner spinnerDrugPerindopril = view.findViewById(R.id.spinnerDrugPerindopril);
-        Spinner spinnerDrugRamipril = view.findViewById(R.id.spinnerDrugRamipril);
-
-        Spinner spinnerDrugCandesartan = view.findViewById(R.id.spinnerDrugCandesartan);
-        Spinner spinnerDrugIrbesartan = view.findViewById(R.id.spinnerDrugIrbesartan);
-        Spinner spinnerDrugLosartan = view.findViewById(R.id.spinnerDrugLosartan);
-        Spinner spinnerDrugTelmisartan = view.findViewById(R.id.spinnerDrugTelmisartan);
-        Spinner spinnerDrugValsartan = view.findViewById(R.id.spinnerDrugValsartan);
-        Spinner spinnerDrugOlmesartan = view.findViewById(R.id.spinnerDrugOlmesartan);
-
-        Spinner spinnerDrugAtenolol = view.findViewById(R.id.spinnerDrugAtenolol);
-        Spinner spinnerDrugLabetolol = view.findViewById(R.id.spinnerDrugLabetolol);
-        Spinner spinnerDrugPropranolol = view.findViewById(R.id.spinnerDrugPropranolol);
-        Spinner spinnerDrugCarvedilol = view.findViewById(R.id.spinnerDrugCarvedilol);
-        Spinner spinnerDrugNebivolol = view.findViewById(R.id.spinnerDrugNebivolol);
-        Spinner spinnerDrugMetoprolol = view.findViewById(R.id.spinnerDrugMetoprolol);
-        Spinner spinnerDrugBisoprolol = view.findViewById(R.id.spinnerDrugBisoprolol);
-
-        Spinner spinnerDrugAmlodipine = view.findViewById(R.id.spinnerDrugAmlodipine);
-        Spinner spinnerDrugFelodipine = view.findViewById(R.id.spinnerDrugFelodipine);
-        Spinner spinnerDrugNifedipine = view.findViewById(R.id.spinnerDrugNifedipine);
-
-        Spinner spinnerDrugChlorthalidone = view.findViewById(R.id.spinnerDrugChlorthalidone);
-        Spinner spinnerDrugHydrochlorothia = view.findViewById(R.id.spinnerDrugHydrochlorothia);
-        Spinner spinnerDrugIndapamide = view.findViewById(R.id.spinnerDrugIndapamide);
-
-        Spinner spinnerDrugMethyldopa = view.findViewById(R.id.spinnerDrugMethyldopa);
-        Spinner spinnerDrugHydralazine = view.findViewById(R.id.spinnerDrugHydralazine);
-        Spinner spinnerDrugPrazocin = view.findViewById(R.id.spinnerDrugPrazocin);
-
-        //Spinners Frequency
-        Spinner spinnerDrugCaptoprilFrq = view.findViewById(R.id.spinnerDrugCaptoprilFrq);
-        Spinner spinnerDrugEnalaprilFrq = view.findViewById(R.id.spinnerDrugEnalaprilFrq);
-        Spinner spinnerDrugLisinoprilFrq = view.findViewById(R.id.spinnerDrugLisinoprilFrq);
-        Spinner spinnerDrugPerindoprilFrq = view.findViewById(R.id.spinnerDrugPerindoprilFrq);
-        Spinner spinnerDrugRamiprilFrq = view.findViewById(R.id.spinnerDrugRamiprilFrq);
-
-        Spinner spinnerDrugCandesartanFrq = view.findViewById(R.id.spinnerDrugCandesartanFrq);
-        Spinner spinnerDrugIrbesartanFrq = view.findViewById(R.id.spinnerDrugIrbesartanFrq);
-        Spinner spinnerDrugLosartanFrq = view.findViewById(R.id.spinnerDrugLosartanFrq);
-        Spinner spinnerDrugTelmisartanFrq = view.findViewById(R.id.spinnerDrugTelmisartanFrq);
-        Spinner spinnerDrugValsartanFrq = view.findViewById(R.id.spinnerDrugValsartanFrq);
-        Spinner spinnerDrugOlmesartanFrq = view.findViewById(R.id.spinnerDrugOlmesartanFrq);
-
-        Spinner spinnerDrugAtenololFrq = view.findViewById(R.id.spinnerDrugAtenololFrq);
-        Spinner spinnerDrugLabetololFrq = view.findViewById(R.id.spinnerDrugLabetololFrq);
-        Spinner spinnerDrugPropranololFrq = view.findViewById(R.id.spinnerDrugPropranololFrq);
-        Spinner spinnerDrugCarvedilolFrq = view.findViewById(R.id.spinnerDrugCarvedilolFrq);
-        Spinner spinnerDrugNebivololFrq = view.findViewById(R.id.spinnerDrugNebivololFrq);
-        Spinner spinnerDrugMetoprololFrq = view.findViewById(R.id.spinnerDrugMetoprololFrq);
-        Spinner spinnerDrugBisoprololFrq = view.findViewById(R.id.spinnerDrugBisoprololFrq);
-
-        Spinner spinnerDrugAmlodipineFrq = view.findViewById(R.id.spinnerDrugAmlodipineFrq);
-        Spinner spinnerDrugFelodipineFrq = view.findViewById(R.id.spinnerDrugFelodipineFrq);
-        Spinner spinnerDrugNifedipineFrq = view.findViewById(R.id.spinnerDrugNifedipineFrq);
-
-        Spinner spinnerDrugChlorthalidoneFrq = view.findViewById(R.id.spinnerDrugChlorthalidoneFrq);
-        Spinner spinnerDrugHydrochlorothiaFrq = view.findViewById(R.id.spinnerDrugHydrochlorothiaFrq);
-        Spinner spinnerDrugIndapamideFrq = view.findViewById(R.id.spinnerDrugIndapamideFrq);
-
-        Spinner spinnerDrugMethyldopaFrq = view.findViewById(R.id.spinnerDrugMethyldopaFrq);
-        Spinner spinnerDrugHydralazineFrq = view.findViewById(R.id.spinnerDrugHydralazineFrq);
-        Spinner spinnerDrugPrazocinFrq = view.findViewById(R.id.spinnerDrugPrazocinFrq);
-
-        Spinner spinnerDrugMetforminFrq = view.findViewById(R.id.spinnerDrugMetforminFrq);
-        Spinner spinnerDrugGlibenclamideFrq = view.findViewById(R.id.spinnerDrugGlibenclamideFrq);
-
-        Spinner spinnerDrugInsulinFrq = view.findViewById(R.id.spinnerDrugInsulinFrq);
-        Spinner spinnerDrugSolubleInsulinFrq = view.findViewById(R.id.spinnerDrugSolubleInsulinFrq);
-        Spinner spinnerDrugNPHFrq = view.findViewById(R.id.spinnerDrugNPH1Frq);
-        Spinner spinnerDrugNPH2Frq = view.findViewById(R.id.spinnerDrugNPH2Frq);
-
-        //Set Dosage
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugCaptopril, DrugsDose.arraySpinnerCaptopril, "Captopril", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugEnalapril, DrugsDose.arraySpinnerEnalapril, "Enalapril", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugLisinopril, DrugsDose.arraySpinnerLisinopril, "Lisinopril", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugPerindopril, DrugsDose.arraySpinnerPerindopril, "Perindopril", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugRamipril, DrugsDose.arraySpinnerRamipril, "Ramipril", this);
-
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugCandesartan, DrugsDose.arraySpinnerCandesartan, "Candesartan", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugIrbesartan, DrugsDose.arraySpinnerIrbesartan, "Irbesartan", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugLosartan, DrugsDose.arraySpinnerLosartan, "Losartan", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugTelmisartan, DrugsDose.arraySpinnerTelmisartan, "Telmisartan", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugValsartan, DrugsDose.arraySpinnerValsartan, "Valsartan", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugOlmesartan, DrugsDose.arraySpinnerOlmesartan, "Olmesartan", this);
-
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugAtenolol, DrugsDose.arraySpinnerAtenolol, "Atenolol", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugLabetolol, DrugsDose.arraySpinnerLabetolol, "Labetolol", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugPropranolol, DrugsDose.arraySpinnerPropranolol, "Propranolol", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugCarvedilol, DrugsDose.arraySpinnerCarvedilol, "Carvedilol", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugNebivolol, DrugsDose.arraySpinnerNebivolol, "Nebivolol", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugMetoprolol, DrugsDose.arraySpinnerMetoprolol, "Metoprolol", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugBisoprolol, DrugsDose.arraySpinnerBisoprolol, "Bisoprolol", this);
-
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugAmlodipine, DrugsDose.arraySpinnerAmlodipine, "Amlodipine", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugFelodipine, DrugsDose.arraySpinnerFelodipine, "Felodipine", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugNifedipine, DrugsDose.arraySpinnerNifedipine, "Nifedipine", this);
-
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugChlorthalidone, DrugsDose.arraySpinnerChlorthalidone, "Chlorthalidone", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugHydrochlorothia, DrugsDose.arraySpinnerHydrochlorothia, "Hydrochlorothia", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugIndapamide, DrugsDose.arraySpinnerIndapamide, "Indapamide", this);
-
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugMethyldopa, DrugsDose.arraySpinnerMethyldopa, "Methyldopa", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugHydralazine, DrugsDose.arraySpinnerHydralazine, "Hydralazine", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugPrazocin, DrugsDose.arraySpinnerPrazocin, "Prazocin", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugMetformin, DrugsDose.arraySpinnerMetformin, "Metformin", this);
-        spinnerDoseData(getActivity(), drugsDose, spinnerDrugGlibenclamide, DrugsDose.arraySpinnerGlibenclamide, "Glibenclamide", this);
-
-        //Spinner set Frequency
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugCaptoprilFrq, "Captopril", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugEnalaprilFrq, "Enalapril", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugLisinoprilFrq, "Lisinopril", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugPerindoprilFrq, "Perindopril", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugRamiprilFrq, "Ramipril", this);
-
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugCandesartanFrq, "Candesartan", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugIrbesartanFrq, "Irbesartan", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugLosartanFrq, "Losartan", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugTelmisartanFrq, "Telmisartan", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugValsartanFrq, "Valsartan", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugOlmesartanFrq, "Olmesartan", this);
-
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugAtenololFrq, "Atenolol", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugLabetololFrq, "Labetolol", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugPropranololFrq, "Propranolol", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugCarvedilolFrq, "Carvedilol", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugNebivololFrq, "Nebivolol", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugMetoprololFrq, "Metoprolol", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugBisoprololFrq, "Bisoprolol", this);
-
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugAmlodipineFrq, "Amlodipine", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugFelodipineFrq, "Felodipine", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugNifedipineFrq, "Nifedipine", this);
-
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugChlorthalidoneFrq, "Chlorthalidone", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugHydrochlorothiaFrq, "Hydrochlorothia", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugIndapamideFrq, "Indapamide", this);
-
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugMethyldopaFrq, "Methyldopa", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugHydralazineFrq, "Hydralazine", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugPrazocinFrq, "Prazocin", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugMetforminFrq, "Metformin", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugGlibenclamideFrq, "Glibenclamide", this);
-
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugInsulinFrq, "Insulin", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugSolubleInsulinFrq, "SolubleInsulin", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugNPHFrq, "NPH", this);
-        spinnerDataFrequency(getContext(), drugsDose, spinnerDrugNPH2Frq, "NPH2", this);
+        radioButton(radioButtonGlucoseYes);
+        radioButton(radioButtonGlucoseNo);
+        radioButton(radioButtonGlucose1);
+        radioButton(radioButtonGlucose2);
+        radioButton(radioButtonGlucose3);
+        radioButton(radioButtonProteinYes);
+        radioButton(radioButtonProteinNo);
+        radioButton(radioButtonProtein1);
+        radioButton(radioButtonProtein2);
+        radioButton(radioButtonProtein3);
+        radioButton(radioButtonKetoneYes);
+        radioButton(radioButtonKetoneNo);
+        radioButton(radioButtonKetone1);
+        radioButton(radioButtonKetone2);
+        radioButton(radioButtonKetone3);
+        radioButton(radioButtonECGNormal);
+        radioButton(radioButtonECGAbnormal);
+        radioButton(radioButtonCXRNormal);
+        radioButton(radioButtonCXRAbnormal);
 
         return view;
     }
 
-    public void textWatcher(EditText editText) {
+    public void textWatcher(final EditText editText, final String field) {
 
         editText.addTextChangedListener(new TextWatcher() {
 
             @Override
             public void afterTextChanged(final Editable editable) {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (editText.length() > 0 && !field.matches("")) {
+
+                            double value = parseDouble(editable.toString().trim());
+                            checkAlert(view, value, field);
+                        }
+                    }
+                }, 3000);
+
                 updateValues();
             }
+
 
             @Override
             public void beforeTextChanged(CharSequence s, int start,
@@ -326,40 +301,185 @@ public class Followup_page_4 extends Fragment implements CheckBoxInterface, Spin
     }
 
 
-    @Override
-    public void checkBoxClick() {
-        updateValues();
+
+    public void urinalysisGlucose(String status) {
+        if (status.matches("1066")) {
+            radioGroupGlucose.setVisibility(View.GONE);
+        } else {
+            radioGroupGlucose.setVisibility(View.VISIBLE);
+        }
     }
 
-    @Override
-    public void spinnerClick() {
-        updateValues();
+    public void urinalysisProtein(String status) {
+        if (status.matches("1066")) {
+            radioGroupProtein.setVisibility(View.GONE);
+        } else {
+            radioGroupProtein.setVisibility(View.VISIBLE);
+        }
     }
+
+    public void urinalysisKetone(String status) {
+        if (status.matches("1066")) {
+            radioGroupKetone.setVisibility(View.GONE);
+        } else {
+            radioGroupKetone.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void radioButton(final RadioButton radioButton) {
+
+        radioButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Is the button now checked?
+                boolean checked = (buttonView).isChecked();
+
+                // Check which radio button was clicked
+                switch (radioButton.getId()) {
+                    case R.id.radio_glucose_yes:
+                        if (checked)
+                            glucose = "1065";
+                        urinalysisGlucose(glucose);
+                        break;
+                    case R.id.radio_glucose_no:
+                        if (checked)
+                            glucose = "1066";
+                        urinalysisGlucose(glucose);
+                        break;
+                    case R.id.radio_glucose_plus:
+                        if (checked)
+                            glucose_plus = "1362";
+                        break;
+                    case R.id.radio_glucose_plus2:
+                        if (checked)
+                            glucose_plus = "1363";
+                        break;
+                    case R.id.radio_glucose_plus3:
+                        if (checked)
+                            glucose_plus = "1364";
+                        break;
+                    case R.id.radio_protein_yes:
+                        if (checked)
+                            protein = "1065";
+                        urinalysisProtein(protein);
+                        break;
+                    case R.id.radio_protein_no:
+                        if (checked)
+                            protein = "1066";
+                        urinalysisProtein(protein);
+                        break;
+                    case R.id.radio_protein_plus:
+                        if (checked)
+                            protein_plus = "1362";
+                        break;
+                    case R.id.radio_protein_plus2:
+                        if (checked)
+                            protein_plus = "1363";
+                        break;
+                    case R.id.radio_protein_plus3:
+                        if (checked)
+                            protein_plus = "1364";
+                        break;
+                    case R.id.radio_ketone_yes:
+                        if (checked)
+                            ketone = "1065";
+                        urinalysisKetone(ketone);
+                        break;
+                    case R.id.radio_ketone_no:
+                        if (checked)
+                            ketone = "1066";
+                        urinalysisKetone(ketone);
+                        break;
+                    case R.id.radio_ketone_plus:
+                        if (checked)
+                            ketone_plus = "1362";
+                        break;
+                    case R.id.radio_ketone_plus2:
+                        if (checked)
+                            ketone_plus = "1363";
+                        break;
+                    case R.id.radio_ketone_plus3:
+                        if (checked)
+                            ketone_plus = "1364";
+                        break;
+                    case R.id.radio_ecg_normal:
+                        if (checked)
+                            ecg = "1115";
+                        break;
+                    case R.id.radio_ecg_abnormal:
+                        if (checked)
+                            ecg = "1116";
+                        break;
+                    case R.id.radio_cxr_normal:
+                        if (checked)
+                            cxr = "1115";
+                        break;
+                    case R.id.radio_cxr_abnormal:
+                        if (checked)
+                            cxr = "1116";
+                        break;
+                }
+
+                updateValues();
+            }
+        });
+
+    }
+
 
     public void updateValues() {
 
         JSONArray jsonArry = new JSONArray();
 
+        jsonArry.put(JSONFormBuilder.observations("887", "", "valueNumeric", editTextRBS.getText().toString().trim(), editTextRBSDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("160912", "", "valueNumeric", editTextFBC.getText().toString().trim(), editTextFBCDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("159644", "", "valueNumeric", editTextHBA.getText().toString().trim(), editTextHBADate.getText().toString().trim(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("165297", "", "valueNumeric", editTextUrea.getText().toString().trim(), editTextUreaDate.getText().toString().trim(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("165298", "", "valueNumeric", editTextSodium.getText().toString().trim(), editTextSodiumDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165299", "", "valueNumeric", editTextChloride.getText().toString().trim(), editTextChlorideDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165300", "", "valueNumeric", editTextPotassium.getText().toString().trim(), editTextPotassiumDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("164364", "", "valueNumeric", editTextCreatinine.getText().toString().trim(), editTextCreatinineDate.getText().toString().trim(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("1007", "", "valueNumeric", editTextHDL.getText().toString().trim(), editTextHDLDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1008", "", "valueNumeric", editTextLDL.getText().toString().trim(), editTextLDLDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1006", "", "valueNumeric", editTextCholesterol.getText().toString().trim(), editTextCholesterolDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1009", "", "valueNumeric", editTextTriglcerides.getText().toString().trim(), editTextTriglceridesDate.getText().toString().trim(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("653", "", "valueNumeric", editTextAST.getText().toString().trim(), editTextASTDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("654", "", "valueNumeric", editTextALT.getText().toString().trim(), editTextALTDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("655", "", "valueNumeric", editTextTotalBilirubin.getText().toString().trim(), editTextTotalBilirubinDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("1297", "", "valueNumeric", editTextDirectBilirubin.getText().toString().trim(), editTextDirectBilirubinDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("159829", "", "valueNumeric", editTextGamma.getText().toString().trim(), editTextGammaDate.getText().toString().trim(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("159733", "", "valueCoded", glucose, editTextGlucoseDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("159733", "", "valueCoded", glucose_plus, editTextGlucoseDate.getText().toString().trim(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("128340", "", "valueCoded", protein, editTextGlucoseDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("128340", "", "valueCoded", protein_plus, editTextGlucoseDate.getText().toString().trim(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("161442", "", "valueCoded", ketone, editTextKetoneDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("161442", "", "valueCoded", ketone_plus, editTextKetoneDate.getText().toString().trim(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("165121", "", "valueText", editTextDeposits.getText().toString().trim(), editTextDepositsDate.getText().toString().trim(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("159565", "", "valueCoded", ecg, editTextECGDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("12", "", "valueCoded", cxr, editTextCXRDate.getText().toString().trim(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165302", "", "valueText", editTextUltraSound.getText().toString().trim(), DateCalendar.date(), ""));
+
+        jsonArry.put(JSONFormBuilder.observations("165312", "", "valueText", editTextPDT.getText().toString().trim(), DateCalendar.date(), ""));
+        jsonArry.put(JSONFormBuilder.observations("165144", "", "valueDate", editTextPDTDate.getText().toString().trim(), DateCalendar.date(), ""));
+
         try {
-            jsonArry = JsonDrugs.jsonArrayDrugs(drugsDose, jsonArry);
-
-            jsonArry.put(JSONFormBuilder.observations("165122", "", "valueCoded", drugsDose.continueCare, DateCalendar.date(), ""));
-            jsonArry.put(JSONFormBuilder.observations("5096", "", "valueDate", drugsDose.editTextReturnDate.getText().toString(), DateCalendar.date(), ""));
-            jsonArry.put(JSONFormBuilder.observations("161562", "", "valueText", drugsDose.editTextReferralLocation.getText().toString().trim(), DateCalendar.date(), ""));
-            jsonArry.put(JSONFormBuilder.observations("163181", "", "valueDate", drugsDose.editTextReferralDate.getText().toString().trim(), DateCalendar.date(), ""));
-            jsonArry.put(JSONFormBuilder.observations("165189", "", "valueText", drugsDose.editTextReferralNote.getText().toString().trim(), DateCalendar.date(), ""));
-            jsonArry.put(JSONFormBuilder.observations("1473", "", "valueText", drugsDose.editTextClinician.getText().toString().trim(), DateCalendar.date(), ""));
-
-
             jsonArry = JSONFormBuilder.concatArray(jsonArry);
-
-            Log.d("JSON FollowUp Page 4", jsonArry.toString() + " ");
-
-            FragmentModelFollowUp.getInstance().followUpFour(jsonArry);
-
-        } catch (Exception e) {
+        } catch (JSONException e) {
             e.printStackTrace();
         }
+        //Log.d("JSON Initial Page 3", jsonArry.toString() + " ");
+
+        FragmentModelFollowUp.getInstance().followUpFour(jsonArry);
     }
 
 }

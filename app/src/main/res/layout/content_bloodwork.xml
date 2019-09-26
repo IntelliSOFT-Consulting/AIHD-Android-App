@@ -1,0 +1,1352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <customfonts.TextView_Roboto_Bold
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/background_inner"
+            android:padding="5dp"
+            android:text="Blood Work" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="RBS (mmols/L)"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <customfonts.EditText_Roboto_Regular
+                android:id="@+id/blood_work_rbs"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:padding="15dp"
+                android:textSize="13sp" />
+
+            <customfonts.EditText_Roboto_Regular
+                android:id="@+id/datetime_rbs"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:focusable="false"
+                android:hint="yyyy-mm-dd"
+                android:inputType="date"
+                android:padding="15dp"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="FBS (mmols/L)"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/blood_work_fbc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_fbc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="HBA 1C(%)"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/blood_work_hba"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/blood_work_hdl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_hba"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <customfonts.TextView_Roboto_Bold
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            android:padding="10dp"
+            android:text="UECs"
+            android:textAllCaps="false" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Urea"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/blood_work_urea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_urea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <customfonts.TextView_Roboto_Bold
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            android:padding="10dp"
+            android:text="Electrolytes"
+            android:textAllCaps="false" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Sodium"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/blood_work_sodium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_sodium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Chloride"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/blood_work_chloride"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_chloride"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Potassium"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/blood_work_potassium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_potassium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Creatinine"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/blood_work_creatinine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:textSize="13sp"
+                    android:inputType="numberDecimal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_creatinine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Seram Uric Acid (mmol/l)"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/blood_work_serum_uric"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:textSize="13sp"
+                    android:inputType="numberDecimal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_serum_uric"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <customfonts.TextView_Roboto_Bold
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            android:padding="10dp"
+            android:text="Lipid Profile"
+            android:textAllCaps="false" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="HDL"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_hdl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="LDL"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/blood_work_ldl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_ldl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Total Cholesterol"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/blood_work_cholesterol"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_cholesterol"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Triglycerides"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/blood_work_triglycerides"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_triglycerides"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <customfonts.TextView_Roboto_Bold
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            android:padding="10dp"
+            android:text="LFT" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="AST (SGOT)"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/blood_work_ast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_ast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="ALT (SGPT)"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/blood_work_alt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_alt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Total Bilirubin"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/blood_work_bilirubin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_bilirubin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Direct Bilirubin"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/blood_work_direct_bilirubin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_direct_bilirubin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Gamma GT(GGT)"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/blood_work_gamma"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_gamma"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <customfonts.TextView_Roboto_Bold
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/background"
+            android:padding="10dp"
+            android:text="Urinalysis: (Flag for all if present- +, ++, +++)" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Glucose"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/radio_glucose_yes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Yes" />
+
+                    <RadioButton
+                        android:id="@+id/radio_glucose_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="No" />
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/radiogroup_glucose"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/radio_glucose_plus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="+" />
+
+                    <RadioButton
+                        android:id="@+id/radio_glucose_plus2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="++" />
+
+                    <RadioButton
+                        android:id="@+id/radio_glucose_plus3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="+++" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_urinalysis_glucose"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Protein"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/radio_protein_yes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Yes" />
+
+                    <RadioButton
+                        android:id="@+id/radio_protein_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="No" />
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/radiogroup_protein"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/radio_protein_plus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="+" />
+
+                    <RadioButton
+                        android:id="@+id/radio_protein_plus2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="++" />
+
+                    <RadioButton
+                        android:id="@+id/radio_protein_plus3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="+++" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_urinalysis_protein"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Ketone"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/radio_ketone_yes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Yes" />
+
+                    <RadioButton
+                        android:id="@+id/radio_ketone_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="No" />
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/radiogroup_ketone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/radio_ketone_plus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="+" />
+
+                    <RadioButton
+                        android:id="@+id/radio_ketone_plus2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="++" />
+
+                    <RadioButton
+                        android:id="@+id/radio_ketone_plus3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="+++" />
+                </RadioGroup>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_urinalysis_ketone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Deposits"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/deposit_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_urinalysis_deposit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

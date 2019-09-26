@@ -39,7 +39,7 @@ import java.io.PrintWriter;
 
 public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollowUp.FragStateChangeListener {
 
-    private JSONArray jsonArry1, jsonArry2, jsonArry3, jsonArry4;
+    private JSONArray jsonArry1, jsonArry2, jsonArry3, jsonArry4, jsonArry5;
     private String encounter_date, file_name, form_id, patient_id;
 
     @Override
@@ -64,12 +64,14 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
         jsonArry2 = new JSONArray();
         jsonArry3 = new JSONArray();
         jsonArry4 = new JSONArray();
+        jsonArry5 = new JSONArray();
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Page 1"));
         tabLayout.addTab(tabLayout.newTab().setText("Page 2"));
         tabLayout.addTab(tabLayout.newTab().setText("Page 3"));
         tabLayout.addTab(tabLayout.newTab().setText("Page 4"));
+        tabLayout.addTab(tabLayout.newTab().setText("Page 5"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = findViewById(R.id.pager);
@@ -118,6 +120,11 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
         jsonArry4 = params;
     }
 
+    @Override
+    public void followUpFive(JSONArray params) {
+        jsonArry5 = params;
+    }
+
 
     public void validate(View view) {
 
@@ -130,7 +137,7 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
 
         try {
 
-            JSONArray jsonArray = JSONFormBuilder.concatArray(jsonArry1, jsonArry2, jsonArry3, jsonArry4);
+            JSONArray jsonArray = JSONFormBuilder.concatArray(jsonArry1, jsonArry2, jsonArry3, jsonArry4, jsonArry5);
             JSONObject jsonForm = new JSONObject();
 
             String error = Validation.followupValidation(jsonArray);
@@ -189,7 +196,7 @@ public class DM_FollowUp extends AppCompatActivity implements FragmentModelFollo
                 if (isConnected) {
                     File_Upload.upload(this, Environment.getExternalStorageDirectory() + "/aihd/followup/" + file_name, id, null);
                 } else {
-                    Toast.makeText(this, "No Internet Connection,Unable to upload file", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Follow Up Form saved,unable to upload file.", Toast.LENGTH_SHORT).show();
                 }
 
             } else {

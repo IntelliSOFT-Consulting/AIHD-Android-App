@@ -145,6 +145,53 @@
                                 android:layout_height="wrap_content"
                                 android:inputType="phone" />
 
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="18dp"
+                                android:orientation="vertical">
+
+                                <customfonts.TextView_Roboto_Bold
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Visit Type"
+                                    android:textColor="@color/black"
+                                    android:textSize="13sp" />
+
+                                <RadioGroup
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <RadioButton
+                                        android:id="@+id/radio_visit_sick"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Sick"
+                                        android:textSize="13sp" />
+
+                                    <RadioButton
+                                        android:id="@+id/radio_visit_referred"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Referred"
+                                        android:textSize="13sp" />
+
+                                    <RadioButton
+                                        android:id="@+id/radio_visit_scheduled"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Scheduled" />
+
+                                    <RadioButton
+                                        android:id="@+id/radio_visit_unscheduled"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Unscheduled" />
+                                </RadioGroup>
+
+                            </LinearLayout>
+
                         </LinearLayout>
                     </LinearLayout>
 

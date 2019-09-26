@@ -7,6 +7,6 @@
 
 ### To publish a release.
 1. Fork [The Dev app](https://github.com/IntelliSOFT-Consulting/AIHD-Android-Dev-App)
-2. Change package name from **org.development.aihd** to **org.aihdint.aihd**
+2. Change package name from **aihdint.aihd** to **development.aihd**
 3. Change versionName
 4. Follow google play procedures to publish application to playstore.

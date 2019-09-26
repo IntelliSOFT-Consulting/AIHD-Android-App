@@ -88,6 +88,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
                 graph.putExtra("patient_id", person.get_id());
                 graph.putExtra("gender", person.getGender());
                 graph.putExtra("identifier", person.getIdentifier());
+                graph.putExtra("death",person.getIsDead());
                 graph.putExtra("name", person.getFamily_name() + " " + person.getGiven_name());
                 mContext.startActivity(graph);
             }

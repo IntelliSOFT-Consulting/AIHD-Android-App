@@ -20,6 +20,8 @@ public class FragmentModelFollowUp {
 
         void followUpFour(JSONArray params);
 
+        void followUpFive(JSONArray params);
+
     }
 
     private FragmentModelFollowUp() {
@@ -57,6 +59,13 @@ public class FragmentModelFollowUp {
             mListener.followUpFour(params);
         }
     }
+
+    public void followUpFive(JSONArray params) {
+        if (mListener != null) {
+            mListener.followUpFive(params);
+        }
+    }
+
 
 }
 

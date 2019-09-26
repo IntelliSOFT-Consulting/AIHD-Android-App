@@ -1,4 +1,4 @@
-package org.aihdint.aihd.Resources;
+package org.aihdint.aihd.resources;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

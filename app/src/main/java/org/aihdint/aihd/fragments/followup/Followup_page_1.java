@@ -35,7 +35,7 @@ public class Followup_page_1 extends Fragment {
     private EditText dmDiagnosisDateEditText, dmClinicDateEditText;
     private EditText htnDiagnosisDateEditText, htnClinicDateEditText;
     private EditText editTextTBDate, editTextTBComment;
-    private String dm_diagnosis, hypertension, nhif, diabetes_type, hypertension_type, tb_screen, tb_status, hiv_status;
+    private String visit_type, dm_diagnosis, hypertension, nhif, diabetes_type, hypertension_type, tb_screen, tb_status, hiv_status;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -77,6 +77,10 @@ public class Followup_page_1 extends Fragment {
         textWatcher(editTextTBDate);
         textWatcher(editTextTBComment);
 
+        RadioButton radioButtonSick = view.findViewById(R.id.radio_visit_sick);
+        RadioButton radioButtonReferred = view.findViewById(R.id.radio_visit_referred);
+        RadioButton radioButtonScheduled = view.findViewById(R.id.radio_visit_scheduled);
+        RadioButton radioButtonUnscheduled = view.findViewById(R.id.radio_visit_unscheduled);
         RadioButton radioButtonDMNew = view.findViewById(R.id.radio_diabetes_new);
         RadioButton radioButtonDMKnown = view.findViewById(R.id.radio_diabetes_known);
         RadioButton radioButtonDMNA = view.findViewById(R.id.radio_diabetes_na);
@@ -103,9 +107,13 @@ public class Followup_page_1 extends Fragment {
         RadioButton radioButtonTBPositive = view.findViewById(R.id.radio_tb_status_positive);
         RadioButton radioButtonTBTreatment = view.findViewById(R.id.radio_tb_status_treatment);
 
+
+        radioButtonClicked(radioButtonSick);
+        radioButtonClicked(radioButtonReferred);
+        radioButtonClicked(radioButtonScheduled);
+        radioButtonClicked(radioButtonUnscheduled);
         radioButtonClicked(radioButtonDMNew);
         radioButtonClicked(radioButtonDMKnown);
-        radioButtonClicked(radioButtonDMNA);
         radioButtonClicked(radioButtonDMNA);
         radioButtonClicked(radioButtonDMType1);
         radioButtonClicked(radioButtonDMType);
@@ -134,7 +142,7 @@ public class Followup_page_1 extends Fragment {
     }
 
     public void dmDiagnosis(String diagnosis) {
-        if (diagnosis.matches("165087")) {
+        if (diagnosis.matches("165087") || diagnosis.matches("1175")) {
             dmDiagnosisDateEditText.setVisibility(View.GONE);
             dmClinicDateEditText.setVisibility(View.GONE);
         } else {
@@ -144,8 +152,7 @@ public class Followup_page_1 extends Fragment {
     }
 
     public void htnDiagnosis(String status) {
-        Log.d("HTN Diagnosis", status);
-        if (status.matches("165092")) {
+        if (status.matches("165092") || status.matches("1175")) {
             htnDiagnosisDateEditText.setVisibility(View.GONE);
             htnClinicDateEditText.setVisibility(View.GONE);
         } else {
@@ -164,14 +171,11 @@ public class Followup_page_1 extends Fragment {
             }
 
             @Override
-            public void beforeTextChanged(CharSequence s, int start,
-                                          int count, int after) {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start,
-                                      int before, int count) {
-
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
             }
         });
     }
@@ -186,6 +190,22 @@ public class Followup_page_1 extends Fragment {
                 boolean checked = (buttonView).isChecked();
                 int value = radioButton.getId();
                 switch (value) {
+                    case R.id.radio_visit_sick:
+                        if (checked)
+                            visit_type = "163293";
+                        break;
+                    case R.id.radio_visit_referred:
+                        if (checked)
+                            visit_type = "160563";
+                        break;
+                    case R.id.radio_visit_scheduled:
+                        if (checked)
+                            visit_type = "1246";
+                        break;
+                    case R.id.radio_visit_unscheduled:
+                        if (checked)
+                            visit_type = "160101";
+                        break;
                     case R.id.radio_diabetes_new:
                         if (checked)
                             dm_diagnosis = "165087";

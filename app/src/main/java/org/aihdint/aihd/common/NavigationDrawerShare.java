@@ -18,8 +18,8 @@ import android.widget.TextView;
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.Home;
 import org.aihdint.aihd.Login;
-import org.aihdint.aihd.Resources.HelpdeskActivity;
-import org.aihdint.aihd.Resources.ResourcesActivity;
+import org.aihdint.aihd.resources.HelpdeskActivity;
+import org.aihdint.aihd.resources.ResourcesActivity;
 import org.aihdint.aihd.app.AppController;
 import org.aihdint.aihd.patient.Patients;
 

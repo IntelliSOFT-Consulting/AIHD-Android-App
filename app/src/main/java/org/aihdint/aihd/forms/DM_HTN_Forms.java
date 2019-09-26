@@ -14,9 +14,6 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
 
-import com.orm.query.Condition;
-import com.orm.query.Select;
-
 import org.aihdint.aihd.R;
 import org.aihdint.aihd.app.CustomDividerItemDecoration;
 import org.aihdint.aihd.common.NavigationDrawerShare;

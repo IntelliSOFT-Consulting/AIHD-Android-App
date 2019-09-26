@@ -129,6 +129,7 @@ public class Patients extends AppCompatActivity implements SwipyRefreshLayout.On
             person.setTelephone(pn.getTelephone());
             person.set_status("0");
             person.setIsReport(IsForm);
+            person.setIsDead(pn.getIsDead());
             person.setIdentifier(pn.getIdentifier());
             // adding contact to contact list
             personList.add(person);

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <customfonts.TextView_Roboto_Bold
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/green"
+            android:padding="10dp"
+            android:text="Radiological" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="ECG"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+
+            <RadioGroup
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radio_ecg_normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Normal" />
+
+                <RadioButton
+                    android:id="@+id/radio_ecg_abnormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Abnormal" />
+            </RadioGroup>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_ecg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="CXR"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+
+            <RadioGroup
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radio_cxr_normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="Normal" />
+
+                <RadioButton
+                    android:id="@+id/radio_cxr_abnormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Abnormal" />
+
+            </RadioGroup>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_cxr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.TextView_Roboto_Bold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Ultrasound"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <customfonts.EditText_Roboto_Regular
+                    android:id="@+id/datetime_ultrasound"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="yyyy-mm-dd"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:padding="15dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linearLayoutPDT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <customfonts.TextView_Roboto_Bold
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:text="PDT"
+                android:textAllCaps="false" />
+
+            <customfonts.EditText_Roboto_Regular
+                android:id="@+id/comment_pdt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Comment"
+                android:padding="15dp"
+                android:textSize="13sp" />
+
+            <customfonts.EditText_Roboto_Regular
+                android:id="@+id/datetime_pdt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="yyyy-mm-dd"
+                android:focusable="false"
+                android:inputType="date"
+                android:padding="15dp"
+                android:textSize="13sp" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

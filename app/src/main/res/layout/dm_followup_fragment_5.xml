@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/treatment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/round_border"
+                app:cardCornerRadius="5dp"
+                card_view:cardElevation="9dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/background_header"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="Follow up Plan"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <customfonts.TextView_Roboto_Bold
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/background"
+                        android:padding="10dp"
+                        android:text="Admit Patient" />
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radio_admit_yes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Yes" />
+
+                        <RadioButton
+                            android:id="@+id/radio_admit_no"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No" />
+
+                    </RadioGroup>
+
+                    <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/admit_reason"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Reason for Admission"
+                        android:padding="10dp"
+                        android:textSize="13sp" />
+
+
+                    <CheckBox
+                        android:id="@+id/followup_continue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Continue Care in facility" />
+
+                    <customfonts.EditText_Roboto_Regular
+                        android:id="@+id/followup_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:hint="Return date"
+                        android:inputType="date"
+                        android:padding="10dp"
+                        android:textSize="13sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:text="Specify Facility:"
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:text="Referral Date:"
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/referral_place"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:ems="10"
+                                android:inputType="text"
+                                android:textSize="15sp" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/referral_date"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:focusable="false"
+                                android:hint="yyyy-mm-dd"
+                                android:inputType="date"
+                                android:textSize="15sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <customfonts.TextView_Roboto_Bold
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:text="Referral Note"
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+
+                            <customfonts.EditText_Roboto_Regular
+                                android:id="@+id/referral_note"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:ems="10"
+                                android:inputType="text"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <customfonts.TextView_Roboto_Bold
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Clinician Name:"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <customfonts.EditText_Roboto_Regular
+                            android:id="@+id/clinician"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+                            android:textSize="15sp" />
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="30dp"
+                            android:background="@drawable/rounded_button"
+                            android:gravity="center"
+                            android:onClick="validate"
+                            android:padding="15dp"
+                            android:text="Submit"
+                            android:textAllCaps="false"
+                            android:textColor="#ffffff" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</android.support.design.widget.CoordinatorLayout>

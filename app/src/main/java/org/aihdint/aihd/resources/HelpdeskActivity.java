@@ -1,4 +1,4 @@
-package org.aihdint.aihd.Resources;
+package org.aihdint.aihd.resources;
 
 import android.content.Intent;
 import android.net.Uri;

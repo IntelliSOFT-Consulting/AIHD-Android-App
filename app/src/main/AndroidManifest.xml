@@ -42,7 +42,7 @@
             android:value="org.aihdint.aihd" />
 
         <activity
-            android:name=".SplashActivity"
+            android:name="org.aihdint.aihd.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,96 +51,102 @@
         </activity>
 
         <activity
-            android:name=".introSlider.IntroActivity"
+            android:name="org.aihdint.aihd.introSlider.IntroActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".Login"
+            android:name="org.aihdint.aihd.Login"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
 
         <activity
-            android:name=".patient.Register"
+            android:name="org.aihdint.aihd.patient.Register"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".UploadRecord"
+            android:name="org.aihdint.aihd.UploadRecord"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".patient.Patients"
+            android:name="org.aihdint.aihd.patient.Patients"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".MainActivity"
+            android:name="org.aihdint.aihd.MainActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Home"
+            android:name="org.aihdint.aihd.Home"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".forms.DM_Initial"
+            android:name="org.aihdint.aihd.forms.DM_Initial"
             android:label="DM HTN Initial"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".forms.DM_FollowUp"
+            android:name="org.aihdint.aihd.forms.DM_FollowUp"
             android:label="DM HTN Follow Up "
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
 
         <activity
-            android:name=".Resources.ResourcesActivity"
+            android:name="resources.ResourcesActivity"
             android:label="@string/resources"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
 
         <activity
-            android:name=".Resources.HelpdeskActivity"
+            android:name="resources.HelpdeskActivity"
             android:label="@string/helpdesk"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
 
+
+        <activity android:name=".resources.ViewResourcesActivity"
+            android:label="@string/resources"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden"/>
+
         <activity
-            android:name=".patient.Patient_Reports"
+            android:name="org.aihdint.aihd.patient.Patient_Reports"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
 
         <activity
-            android:name=".patient.Profile"
+            android:name="org.aihdint.aihd.patient.Profile"
             android:label="Profile"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
 
         <activity
-            android:name=".View_Reports"
+            android:name="org.aihdint.aihd.View_Reports"
             android:label="Profile"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
 
         <activity
-            android:name=".patient.Transfer"
+            android:name="org.aihdint.aihd.patient.Transfer"
             android:label="Transfer"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
 
         <activity
-            android:name=".forms.DM_Initial_View"
+            android:name="org.aihdint.aihd.forms.DM_Initial_View"
             android:label="DM Initial Form"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
 
         <activity
-            android:name=".forms.DM_HTN_Forms"
+            android:name="org.aihdint.aihd.forms.DM_HTN_Forms"
             android:label="DM Forms"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
@@ -148,50 +154,50 @@
 
         <!-- Intent service -->
         <service
-            android:name=".services.LoadFiles"
+            android:name="org.aihdint.aihd.services.LoadFiles"
             android:exported="false"
             android:process=":loadFiles" />
         <service
-            android:name=".services.LoadLocations"
+            android:name="org.aihdint.aihd.services.LoadLocations"
             android:exported="false"
             android:process=":loadLocations" />
         <service
-            android:name=".services.LoadConcepts"
+            android:name="org.aihdint.aihd.services.LoadConcepts"
             android:exported="false"
             android:process=":loadConcepts" />
         <service
-            android:name=".services.LoadPatients"
+            android:name="org.aihdint.aihd.services.LoadPatients"
             android:exported="false"
             android:process=":loadPatients" />
         <service
-            android:name=".services.LoadAlarm"
+            android:name="org.aihdint.aihd.services.LoadAlarm"
             android:exported="false"
             android:process=":loadAlarm" />
 
         <!-- Receiver -->
 
         <receiver
-            android:name=".app.ScheduledReceiver"
+            android:name="org.aihdint.aihd.app.ScheduledReceiver"
             android:process=":alarmReceiver" />
 
         <activity
-            android:name=".Resources.Pdf1"
+            android:name="org.aihdint.aihd.resources.Pdf1"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Resources.Pdf2"
+            android:name="org.aihdint.aihd.resources.Pdf2"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Resources.Pdf3"
+            android:name="org.aihdint.aihd.resources.Pdf3"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Resources.Pdf4"
+            android:name="org.aihdint.aihd.resources.Pdf4"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Resources.Pdf5"
+            android:name="org.aihdint.aihd.resources.Pdf5"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden"/>
     </application>

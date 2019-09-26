@@ -62,7 +62,9 @@
     <string name="nairobi_city_council">Nairobi City County</string>
     <string name="pending">Pending</string>
     <string name="uploaded">Uploaded</string>
-    <string name="deceased">Confirm patient is deceased</string>
+    <string name="deceased">Mark patient deceased</string>
+    <string name="death_cause">Cause of Death?</string>
+    <string name="deceased_error">Please fill in all the fields</string>
     <string name="malteser_international">Malteser International</string>
     <string name="logout">Logout</string>
     <string name="share">Share</string>
